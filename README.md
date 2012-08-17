@@ -26,8 +26,8 @@
 3. mobile.php 通过<script 标签 引入 /assets/m/js/lib/sea/sea.js 库 然后调用第一个入口文件 assets/m/js/config.js文件.
 
 4. 所有的前端页面在/assets/m/ 里面 其中js/lib/ 下的大部分原生库都是不需要用到的,因为加载的是assets/m/js/lib/seajs-modules改过的库. 在config.js文件中设置了很多alias别名,例如 'jquery': 'http://localhost:8080/assets/m/js/lib/seajs-modules/jquery/1.7.2/jquery.js', 方便以后在文件中不需要在输入超长的路径了.
-同时在还调用了seajs的插件 	preload: ['plugin-json', 'plugin-text', 'plugin-coffee', 'plugin-less'], 可以方便解析json数据,文本数据(用来解析html模板文件), coffee的js语法, 和 less样式文件.
-最后在config.js 调用了assets/m/js/init.js 真正的入口文件. seajs.use('baseurl/js/init'); 注意:使用seajs需要把config配置放到init之前,否则seajs插件例如plugin-text 无法起到作用导致无法解析.tpl模板文件
+同时在还调用了seajs的插件 	`preload: ['plugin-json', 'plugin-text', 'plugin-coffee', 'plugin-less'],` 可以方便解析json数据,文本数据(用来解析html模板文件), coffee的js语法, 和 less样式文件.
+最后在config.js 调用了assets/m/js/init.js 真正的入口文件.` seajs.use('baseurl/js/init');` 注意:使用seajs需要把config配置放到init之前,否则seajs插件例如plugin-text 无法起到作用导致无法解析.tpl模板文件
 
 5. 在init.js中 建立了符合CMD规范的格式文件. 同时引用了库,例如	var $ = jQuery = require('jquery');  此时$已经不是常规的jQuery的$,而是我们自行定义的变量. 为了和其他库兼容, 当然还是起个名字为$. 同样还有var Backbone和 underscore.
 
