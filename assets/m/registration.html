@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title></title>
+        <link rel="stylesheet" href="js/lib/jquerymobile/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="style/my.css" />
+    </head>
+    <body>
+        <!-- registration -->
+		<div data-role="page" id="registration" data-title="注册">
+			<div data-role="header" data-theme="a" >
+				<div class="header">
+					<div class="logo">
+						<a href="index.html"> <img src="images/logo.png" />
+						</a>
+					</div>
+					<div class="nav">
+						<a href="category.html" class="menu"></a>
+						<a href="myaccount.html" class="user"></a>
+						<a href="shoppingcart.html" class="cart"></a>
+					</div>
+				</div>
+				<div data-role="navbar" data-iconpos="left">
+					<ul>
+						<li>
+							<a href="index.html" data-theme="c" data-icon="home">首页</a>
+						</li>
+						<li>
+							<a href="registration.html" data-theme="e" data-icon="grid">注册</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div data-role="content">
+				<form id="frmReg" action="">
+					<div data-role="fieldcontain" class="ui-hide-label">
+						<fieldset data-role="controlgroup">
+							<label for="email">邮箱地址</label>
+							<input type="text" id="email" name="email" class="required" placeholder="请填写有效的Email地址" value="" />
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain" class="ui-hide-label">
+						<fieldset data-role="controlgroup">
+							<label for="password">密码</label>
+							<input type="password" id="password" name="password" class="required" placeholder="请输入密码,为6-20位英文字母、字符或数字" value="" />
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain" class="ui-hide-label">
+						<fieldset data-role="controlgroup">
+							<label for="confirm_password">确认密码</label>
+							<input type="password" id="confirm_password" name="confirm_password" class="required" placeholder="请输入确认密码" value="" />
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain" class="ui-hide-label">
+						<fieldset data-role="controlgroup">
+							<label for="mobile">手机号码</label>
+							<input type="text" id="mobile" name="mobile" class="required" placeholder="请输入手机号用于接收母婴之家优惠礼券" value="" />
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup" data-type="horizontal">
+							<legend>宝宝生日或预产期</legend>
+<label for="select-choice-year"></label>
+							<select name="year" id="select-choice-year" class="required"  >
+								<option value="">年</option>
+								<option value="2013">2013</option>
+								<option value="2012">2012</option>
+								<option value="2011">2011</option>
+								<option value="2010">2010</option>
+								<option value="2009">2009</option>
+								<option value="2008">2008</option>
+								<option value="2007">2007</option>
+							</select>
+
+<label for="select-choice-month"> </label> 
+							<select name="month" id="select-choice-month" class="required" >
+								<option value="">月</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="10">10</option>
+								<option value="12">12</option>
+							</select>
+                          
+<label for="select-choice-day"> </label>  
+							<select name="day" id="select-choice-day" class="required" >
+								<option value="">日</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="10">10</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31">31</option>
+							</select>
+<div class="error"></div>
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="checkbox_agree">阅读并同意"母婴之家"网站</label>
+                        <input type="checkbox" name="checkbox_agree" id="checkbox_agree" class="required custom checkPro" data-mini="true" />
+                        <a href="#userpolicy">查看母婴之家用户协议</a>
+					</div>
+					<input data-theme="b" value="注册" type="submit" />
+				</form>
+			</div>
+
+			<div data-role="footer" data-theme="c" class="p10">
+				<div class="ui-grid-b" style="padding-bottom:5px;">
+					<div class="ui-block-a">
+						<a href="login.html" rel="external">登录</a>
+					</div>
+					<div class="ui-block-b">
+						<a href="registration.html"  rel="external">注册</a>
+					</div>
+					<div class="ui-block-c">
+						<a href="http://www.muyingzhijia.com" >电脑版</a>
+					</div>
+				</div>
+				<div>
+					<span data-role="button" data-icon="arrow-u" data-iconpos="left" id="gotop">回顶部</span>
+				</div>
+				<div>Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
+			</div>
+		</div>
+
+
+  <!-- userpolicy -->
+		<div data-role="page" id="userpolicy" data-title="母婴之家用户协议">
+			<div data-role="header" data-theme="a">
+				<div class="header">
+					<div class="logo">
+						<a href="index.html"> <img src="images/logo.png" />
+						</a>
+					</div>
+					<div class="nav">
+                        <a href="category.html" class="menu"></a>
+                        <a href="myaccount.html" class="user"></a>
+                        <a href="shoppingcart.html" class="cart"></a>
+					</div>
+				</div>
+				<div data-role="navbar" data-iconpos="left">
+					<ul>
+						<li>
+							<a href="index.html" data-theme="c" data-icon="home">首页</a>
+						</li>
+						<li>
+							<a href="registration.html" data-theme="c" data-icon="grid">注册</a>
+						</li>
+						<li>
+							<a href="#userpolicy" data-theme="e" data-icon="grid">用户协议</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div data-role="content">
+				<h1>母婴之家服务协议</h1>
+				<ul>
+					<li>（一）只有注册会员才可以在母婴之家网上进行购物、订单查询、参加各项优惠活动、发表产品评论等。请记住您的会员号。它是您在母婴之家的唯一识别，您的任何投诉、问题、购买记录，均采用这个会员号处理。而且，您再次光临本站购物会有很大的方便，许多信息不必重新输入。</li>
+					<li>（二）会员名可以是您便于记忆的任何代号比如网名。不过，在注册用户的时候，我们建议您务必输入您的真实信息，我们会为您绝对保密。这样有利于准确发货、提供各项服务、必要时迅速与您联系。</li>
+					<li>（三）母婴之家首页中上方有"购物车"的链接，当您忘记密码时，请点击"取回密码" ，输入您注册的用户名，系统会自动发送您的密码到您的注册邮箱，您可以收到您的密码，下次登陆母婴之家时，您可以在母婴之家中可以重新设置一个您能记住的密码。</li>
+					<li>（四）您随时可以登录"购物车"，进入"个人资料"查看并修改您的注册信息。</li>
+					<li>（五）如果在使用中遇到程序问题或BUG，请给我们留言,我们会及时修正这些问题！谢谢支持！</li>
+				</ul>
+				<a href="#registration"  data-role="button" data-theme="b">同意该协议</a>
+			</div>
+			<div data-role="footer" data-theme="c" class="p10">
+				<div class="ui-grid-b" style="padding-bottom:5px;">
+					<div class="ui-block-a">
+						<a href="login.html" rel="external">登录</a>
+					</div>
+					<div class="ui-block-b">
+						<a href="registration.html"  rel="external">注册</a>
+					</div>
+					<div class="ui-block-c">
+						<a href="http://www.muyingzhijia.com" >电脑版</a>
+					</div>
+				</div>
+				<div>
+					<span data-role="button" data-icon="arrow-u" data-iconpos="left" id="gotop">回顶部</span>
+				</div>
+				<div>Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
+			</div>
+		</div>
+
+		<script src="js/lib/jquery/jquery-1.7.1.min.js"></script>
+        <script src="js/lib/jquerymobile/jquery.mobile-1.1.0.min.js"></script> 
+     	<script src="js/lib/jquery/jquery.validate.min.js"></script>
+        <script src="js/my.validate.js"></script>
+        <script src="js/myapp.js"></script>
+    </body>
+</html>
