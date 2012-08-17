@@ -45,7 +45,7 @@
 
 12. 在View 会引入模板文件. 该项目使用的underscore内置的模板引擎. 所有的模板放到了assets/m/templates. 在view文件中使用以下代码即可 引入模板作为一个变量使用 `var userloginTemplate = require('baseurl/templates/web/user/userlogin.tpl');`
 
-13. 在bbrouter.js文件中项目首页和user/add页面 user/2页面是用户列表,添加,删除,修改的简单例子, 而user/login是使用了jQuery Mobile例子.
+13. 在bbrouter.js文件中项目 首页和user/add页面, user/2页面是用户列表,添加,删除,修改的简单例子, 而user/login是使用了jQuery Mobile例子.
 
 14. 数据调用Restful接口则在 Model文件assets/m/js/myapp/model/usermodel.js中,调用的接口地址为 `urlRoot: "index.php/api/restful_user/user/id",` PHP restful接口文件文件为application / controllers / api / restful_user.php 同时使用了mysql数据库, 很多简单的一个user表.字段与backbone的usermodel模型一样. 具体可以去看application/config/database.php数据库设置和 model文件application/models/model_user.php
 
