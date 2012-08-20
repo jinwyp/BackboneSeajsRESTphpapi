@@ -4,7 +4,7 @@ define(function(require, exports, module) {
 	var Backbone = require('backbone');
 	var _ = require('underscore');
 
-	var userloginTemplate = require('baseurl/templates/web/user/userlogin.tpl');	
+	var userloginTemplate = require('baseurl/templates/mobile/user/userlogin.tpl');	
 		
 			
 	
