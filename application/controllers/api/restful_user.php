@@ -51,6 +51,9 @@ $users = array(
         	$data['username'] = $this->post('username');		
 			$data['email'] = $this->post('email');
 			$data['password'] = sha1($this->post('password'));
+			$data['mobile'] = $this->post('mobile');
+			$data['firstname'] = $this->post('firstname');
+			$data['lastname'] = $this->post('lastname');
         	
         	$result = $this->Model_User->postUser($data);
 	        
@@ -73,6 +76,9 @@ $users = array(
 			$data['username'] = $this->put('username');		
 			$data['email'] = $this->put('email');
 			$data['password'] = sha1($this->put('password'));
+			$data['mobile'] = $this->put('mobile');
+			$data['firstname'] = $this->put('firstname');
+			$data['lastname'] = $this->put('lastname');
         
 	        $result = $this->Model_User->putUser( $this->put('id'), $data);  
 	          

@@ -38,6 +38,7 @@ define(function(require) {
 		var BBRouter = require('./myapp/bbrouter');
         BBRouter.initialize();
 		
+/*
 		require('jqm');
 	    $.extend($.mobile, {
 	
@@ -55,6 +56,7 @@ define(function(require) {
 	        // to handle these requests.
 	        linkBindingEnabled:false
 	    });
+*/
 
 		
 	});

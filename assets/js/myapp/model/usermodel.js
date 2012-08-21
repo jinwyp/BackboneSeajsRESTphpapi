@@ -12,6 +12,9 @@ define(function(require, exports, module) {
 	        username: "",
 	        password: "",
 	        email: "",
+	        mobile: "",
+	        firstname: "",
+	        lastname: "",
 	        datecreated: ""
 	    }			
 	});	
