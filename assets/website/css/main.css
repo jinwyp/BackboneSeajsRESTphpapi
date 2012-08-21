@@ -1,0 +1,59 @@
+/*!
+ * Bootstrap main
+ *
+ * 
+ * 
+ */
+
+body {
+	padding-top: 90px;
+	padding-bottom: 40px;
+}
+
+.sidebar-nav {
+	padding: 10px 0;
+}
+
+.nav .leftmenuheader{
+	font-size: 18px;	  
+}
+
+
+.rightmenubar {
+    background-color: #EEEEEE;
+    background-image: -moz-linear-gradient(center top , #F5F5F5 0%, #EEEEEE 100%);
+    background-repeat: repeat-x;
+    border: 1px solid #E5E5E5;
+    height: 30px;
+	padding: 2px 10px 2px 20px;
+	margin-bottom: 10px;
+}
+
+.rightsearchoptionbox {
+    background-color: #EEEEEE;
+    background-image: -moz-linear-gradient(center top , #F5F5F5 0%, #EEEEEE 100%);
+    background-repeat: repeat-x;
+    border: 1px solid #E5E5E5;
+    height: 120px;
+	padding: 10px 10px 10px 10px;
+	margin-bottom: 10px;
+}
+
+.rightinputbox {
+    background-color: #EEEEEE;
+    background-image: -moz-linear-gradient(center top , #F5F5F5 0%, #EEEEEE 100%);
+    background-repeat: repeat-x;
+    border: 1px solid #E5E5E5;
+    height: 500px;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+}
+
+.inputbox  label{
+	display:inline;
+}
+
+.searchbutton{
+	width:100px;
+}
+
