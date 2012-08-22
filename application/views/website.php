@@ -25,7 +25,7 @@
     <body>
 
 
-		<div class="navbar navbar-fixed-top" id="headerbox">
+		<div class="navbar navbar-inverse navbar-fixed-top" id="headerbox">
 		</div>
 		
 		

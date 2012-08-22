@@ -9,7 +9,21 @@ define(function(require) {
 	window.Backbone = Backbone;
 	window._ = _;
 
+	require('tbs-affix')($);	
+	require('tbs-alert')($);
+	require('tbs-button')($);
+	require('tbs-carousel')($);
+	require('tbs-collapse')($);
 	require('tbs-dropdown')($);
+	require('tbs-modal')($);
+/* 	require('tbs-popover')($); */
+	require('tbs-scrollspy')($);
+	require('tbs-tab')($);
+	require('tbs-tooltip')($);
+	require('tbs-transition')($);
+	require('tbs-typeahead')($);
+
+
 
 
 /*

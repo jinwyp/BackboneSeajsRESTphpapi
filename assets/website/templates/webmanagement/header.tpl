@@ -7,7 +7,7 @@
 						<span class="icon-bar"></span>
 					</a>
 					<a class="brand" href="#">
-						<img width="170" height="50" src="./assets/website/img/logo.png" alt="" />
+						<img width="170" height="50" src="./assets/website/img/logo_jquery_215x53.gif" alt="" />
 					</a>
 					<div class="btn-group pull-right">
 						<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">

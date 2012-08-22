@@ -11,8 +11,9 @@
 		    'jqm': 'http://localhost:8080/assets/js/lib/seajs-modules/jquerymobile/jquery.mobile-1.1.0.min.js',
 		    
 		    
-		    'tbs': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap.js',
+		    'tbs-affix': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-affix.js',
 		    'tbs-alert': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-alert.js',
+		    'tbs-button': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-button.js',
 		    'tbs-carousel': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-carousel.js',
 		    'tbs-collapse': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-collapse.js',
 		    'tbs-dropdown': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-dropdown.js',
@@ -36,20 +37,7 @@
 	
 	seajs.use('baseurl/js/init');
 	
-/*
-	seajs.use('tbs');
-	seajs.use('tbs-alert');
-	seajs.use('tbs-carousel');
-	seajs.use('tbs-collapse');
-	seajs.use('tbs-dropdown');
-	seajs.use('tbs-modal');
-	seajs.use('tbs-popover');
-	seajs.use('tbs-scrollspy');
-	seajs.use('tbs-tab');
-	seajs.use('tbs-tooltip');
-	seajs.use('tbs-transition');
-	seajs.use('tbs-typeahead');	
-*/
+
 	
 
 	
