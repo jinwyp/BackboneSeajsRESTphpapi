@@ -16,7 +16,7 @@ define(function(require) {
 	require('tbs-collapse')($);
 	require('tbs-dropdown')($);
 	require('tbs-modal')($);
-/* 	require('tbs-popover')($); */
+	require('tbs-popover')($);
 	require('tbs-scrollspy')($);
 	require('tbs-tab')($);
 	require('tbs-tooltip')($);
