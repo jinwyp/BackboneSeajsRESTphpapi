@@ -1,6 +1,6 @@
 define(function(){return function($){
-/* ===================================================
- * bootstrap-transition.js v2.0.4
+/* ==========================================================
+ * bootstrap-transition.js v2.1.0
  * http://twitter.github.com/bootstrap/javascript.html#transitions
  * ===================================================
  * Copyright 2012 Twitter, Inc.
@@ -37,8 +37,7 @@ define(function(){return function($){
           , transEndEventNames = {
                'WebkitTransition' : 'webkitTransitionEnd'
             ,  'MozTransition'    : 'transitionend'
-            ,  'OTransition'      : 'oTransitionEnd'
-            ,  'msTransition'     : 'MSTransitionEnd'
+            ,  'OTransition'      : 'oTransitionEnd otransitionend'
             ,  'transition'       : 'transitionend'
             }
           , name
