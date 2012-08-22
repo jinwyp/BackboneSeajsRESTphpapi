@@ -1,5 +1,3 @@
-define(function(require) {	
-
 
 	seajs.config({
 		alias: {
@@ -12,6 +10,20 @@ define(function(require) {
 		    'less': 'http://localhost:8080/assets/js/lib/seajs-modules/less/1.3.0/less.js',
 		    'jqm': 'http://localhost:8080/assets/js/lib/seajs-modules/jquerymobile/jquery.mobile-1.1.0.min.js',
 		    
+		    
+		    'tbs': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap.js',
+		    'tbs-alert': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-alert.js',
+		    'tbs-carousel': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-carousel.js',
+		    'tbs-collapse': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-collapse.js',
+		    'tbs-dropdown': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-dropdown.js',
+		    'tbs-modal': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-modal.js',
+		    'tbs-popover': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-popover.js',
+		    'tbs-scrollspy': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-scrollspy.js',
+		    'tbs-tab': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-tab.js',
+		    'tbs-tooltip': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-tooltip.js',
+		    'tbs-transition': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-transition.js',
+		    'tbs-typeahead': 'http://localhost:8080/assets/js/lib/seajs-modules/bootstrap/bootstrap-typeahead.js',
+		    
 		    'baseurl': 'http://localhost:8080/assets/'
 		},
 		
@@ -20,8 +32,24 @@ define(function(require) {
 		
 	});
 	
+
 	
 	seajs.use('baseurl/js/init');
 	
+/*
+	seajs.use('tbs');
+	seajs.use('tbs-alert');
+	seajs.use('tbs-carousel');
+	seajs.use('tbs-collapse');
+	seajs.use('tbs-dropdown');
+	seajs.use('tbs-modal');
+	seajs.use('tbs-popover');
+	seajs.use('tbs-scrollspy');
+	seajs.use('tbs-tab');
+	seajs.use('tbs-tooltip');
+	seajs.use('tbs-transition');
+	seajs.use('tbs-typeahead');	
+*/
 	
-});
+
+	

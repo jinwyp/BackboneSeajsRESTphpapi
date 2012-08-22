@@ -1,8 +1,6 @@
 define(function(require, exports, module) {
 
-	var $ = jQuery = require('jquery');
-	var Backbone = require('backbone');
-	var _ = require('underscore');
+
 	
 	
 	var userlistsingleviewTemplate = require('baseurl/website/templates/webmanagement/user/userlistsingle.tpl');	
