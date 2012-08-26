@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title></title>
+        <link rel="stylesheet" href="js/lib/jquerymobile/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="style/my.css" />
+        <link rel="stylesheet" href="style/camera.css" />
+    </head>
+    <body>
+        <!-- index -->
+		<div data-role="page" id="new" data-title="首页">
+			<div data-role="header" data-theme="a">
+				<div class="header">
+					<div class="logo">
+						<a href="index.html"> <img src="images/logo.png" />
+						</a>
+					</div>
+					<div class="nav">
+						<a href="category.html" class="menu"></a>
+						<a href="myaccount.html" class="user"></a>
+						<a href="shoppingcart.html" class="cart"></a>
+					</div>
+				</div>
+			</div>
+
+            <div data-role="content" style="padding: 0">
+                <form action="productlist.html">
+                    <fieldset data-role="controlgroup" data-mini="true">
+                        <label for="searchinput1"></label>
+                        <input id="searchinput1" placeholder="商品搜索" value="奶粉" type="search" />
+                    </fieldset>
+                </form>
+				<div class="content-primary">
+                    <div class="camera_wrap camera_azure_skin" id="foucs">
+                        <div  data-src="../images/slides/Accessories0705_1000x400.jpg">
+                        </div>
+                        <div data-src="../images/slides/Diapers0710_1000x400.jpg">
+                        </div>
+                        <div  data-src="../images/slides/Milk0710_1.jpg">
+                        </div>
+                        <div  data-src="../images/slides/Pampers0711_1000x400.jpg">
+                        </div>
+                        <div data-src="../images/slides/wanju0705_1000x4000.jpg">
+                        </div>
+                    </div><!-- #foucs -->
+
+					<ul data-role="listview" data-inset="true"  data-theme="c">
+						<li>
+							<a href="productlist.html"><span class="icon-custom icon-custom-01"></span>限时抢购</a>
+						</li>
+                        <li>
+                            <a href="productlist.html"><span class="icon-custom icon-custom-02"></span>促销快报</a>
+                        </li>
+                        <li>
+                            <a href="productlist.html"><span class="icon-custom icon-custom-03"></span>新品上架</a>
+                        </li>
+                        <li>
+                            <a href="productlist.html"><span class="icon-custom icon-custom-04"></span>热门单品</a>
+                        </li>
+                        <li>
+                            <a href="productlist.html"><span class="icon-custom icon-custom-05"></span>推荐品牌</a>
+                        </li>
+
+					</ul>
+                    <ul data-role="listview" data-inset="true" data-dividertheme="d" >
+                        <li data-role="list-divider">公告</li>
+                        <li>
+                            <a href="noticedetail.html">
+                                在线客服试运行
+                            </a>
+                        </li>
+                        <li>
+                            <a href="noticedetail.html">
+                                在线客服试运行
+                            </a>
+                        </li>
+                        <li>
+                            <a href="noticedetail.html">
+                                在线客服试运行
+                            </a>
+                        </li>
+                    </ul>
+				</div>
+			</div>
+			<div data-role="footer" data-theme="c" class="p10">
+				<div class="ui-grid-b" style="padding-bottom:5px;">
+					<div class="ui-block-a">
+						<a href="login.html" rel="external">登录</a>
+					</div>
+					<div class="ui-block-b">
+						<a href="registration.html"  rel="external">注册</a>
+					</div>
+					<div class="ui-block-c">
+						<a href="http://www.muyingzhijia.com" >电脑版</a>
+					</div>
+				</div>
+				<div>
+                    <span data-role="button" data-icon="arrow-u" data-iconpos="left" id="gotop">回顶部</span>
+				</div>
+				<div>Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
+			</div>
+		</div>
+
+
+		<script src="js/lib/jquery/jquery-1.7.2.min.js"></script>
+        <script src="js/lib/jquerymobile/jquery.mobile-1.1.0.min.js"></script>
+        <script src="js/lib/jqueryplugin/jquery.easing.1.3.js"></script>
+        <script src="js/lib/jqueryplugin/camera.min.js"></script>
+        <script src="js/myapp.js"></script>
+    <script>
+                jQuery(function(){
+                    jQuery('#foucs').camera({
+                        thumbnails:false,
+                        pauseOnClick:false,
+                        pagination: false,
+                        loader: 'bar',
+						fx:'scrollHorz',
+                        playPause: false,
+                        time: 4000,
+                        transPeriod: 1500
+                    });
+                });
+   </script>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title></title>
+        <link rel="stylesheet" href="js/lib/jquerymobile/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="style/my.css" />
+    </head>
+    <body>
+    <!-- myaccount -->
+    <div data-role="page" id="myaccount" data-title="个人中心">
+        <div data-role="header" data-theme="a">
+            <div class="header">
+                <div class="logo"><a href="index.html"><img src="images/logo.png"/></a></div>
+                <div class="nav"><a href="category.html" class="menu"></a> <a href="myaccount.html" class="user"></a> <a
+                        href="shoppingcart.html" class="cart"></a></div>
+            </div>
+            <div data-role="navbar" data-iconpos="left">
+                <ul>
+                    <li><a href="/" data-theme="e" data-icon="star">个人中心</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-divider-theme="d" data-inset="true">
+                <li data-role="list-divider">个人信息</li>
+                <li>用户名：<strong>zcf1250@muyingzhijia.com</strong></li>
+                <li>会员等级：<strong>普通宝宝</strong></li>
+                <li>已累积幸运星：<strong>0颗</strong>（再累积5000颗幸运星，就能成为星星宝宝享受更多优惠！）</li>
+                <li>累计消费：<strong>¥0.00</strong></li>
+            </ul>
+            <ul data-role="listview" data-divider-theme="d" data-inset="true">
+                <li data-role="list-divider">订单中心</li>
+                <li><a href="orderlist.html">我的订单</a></li>
+            </ul>
+            <a href="index.html"  data-role="button" data-inline="true" data-mini="true" data-theme="d">退出登录</a>
+        </div>
+
+        <div data-role="footer" data-theme="c" class="p10">
+            <div class="ui-grid-b" style="padding-bottom:5px;">
+                <div class="ui-block-a"><a href="login.html" rel="external">登录</a></div>
+                <div class="ui-block-b"><a href="registration.html"  rel="external">注册</a></div>
+                <div class="ui-block-c"><a href="http://www.muyingzhijia.com" >电脑版</a></div>
+            </div>
+            <div><a href="#productlist" data-role="button" data-icon="arrow-u" data-iconpos="left">回顶部</a></div>
+            <div>Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
+        </div>
+    </div>
+    <script src="js/lib/jquery/jquery-1.7.1.min.js"></script>
+        <script src="js/lib/jquerymobile/jquery.mobile-1.1.0.min.js"></script>  
+		<script src="js/myapp.js"></script>
+    </body>
+</html>

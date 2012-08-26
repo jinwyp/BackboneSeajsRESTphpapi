@@ -1,0 +1,10 @@
+{
+    "name": "easing",
+    "version": "1.0.0",
+    "dependencies": {
+        "$":"$"
+    },
+    "output": {
+        "easing.js": ["easing.js"]
+    }
+}

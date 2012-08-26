@@ -1,0 +1,7 @@
+{
+    "name": "class",
+    "version": "1.0.0",
+    "output": {
+        "class.js": "."
+    }
+}

@@ -25,6 +25,7 @@ define(function(require, exports, module) {
 	        "change" : "change",
 	        "click #modify_button" : "SaveUser",
 	        "click #del_button" : "delUser",	        
+	        "click #del_button" : "delUser"	        
 	    },	
 	    
         change: function (event) {

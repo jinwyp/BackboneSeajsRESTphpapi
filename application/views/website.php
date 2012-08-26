@@ -2,7 +2,7 @@
 <html>
     <head>
             
-	    <title>用户列表</title>
+	    <title>网站管理后台</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta name="description" content="">
 	    <meta name="author" content="">
@@ -10,9 +10,9 @@
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	    <link href="<?php echo base_url();?>assets/website/css/bootstrap.css" rel="stylesheet">
-	    <link href="<?php echo base_url();?>assets/website/css/bootstrap-responsive.css" rel="stylesheet">
-		<link href="<?php echo base_url();?>assets/website/css/main.css" rel="stylesheet">
+	    <link href="<?php echo base_url();?>assets/website/styles/bootstrap.css" rel="stylesheet">
+	    <link href="<?php echo base_url();?>assets/website/styles/bootstrap-responsive.css" rel="stylesheet">
+		<link href="<?php echo base_url();?>assets/website/styles/main.css" rel="stylesheet">
 
 
 	    <link rel="shortcut icon" href="<?php echo base_url();?>assets/website/ico/favicon.ico">
@@ -55,18 +55,17 @@
 		
 
 
-		<script src="<?php echo base_url();?>/assets/js/lib/sea/sea.js"></script>
+		<script src="<?php echo base_url();?>/assets/js/sea/sea.js"></script>
 		<script>
-		seajs.use('<?php echo base_url();?>/assets/js/config');		
+			seajs.use('<?php echo base_url();?>/assets/js/config');		
 		</script>
 		
 <!--				
-		<script src="<?php echo base_url();?>/assets/m/js/lib/jquery/jquery-1.7.2.min.js"></script>
-		<script src="<?php echo base_url();?>/assets/m/js/lib/jquerymobile/jquery.mobile-1.1.0.min.js"></script>
-
+		<script src="<?php echo base_url();?>/assets/js/lib/jquery/jquery-1.7.2.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/js/lib/jquerymobile/jquery.mobile-1.1.0.min.js"></script>
 		
-		<script src="<?php echo base_url();?>/assets/m/js/lib/underscore/underscore.js"></script>
-		<script src="<?php echo base_url();?>/assets/m/js/lib/backbone/backbone.js"></script>
+		<script src="<?php echo base_url();?>/assets/js/lib/underscore/underscore.js"></script>
+		<script src="<?php echo base_url();?>/assets/js/lib/backbone/backbone.js"></script>
 -->
 
 

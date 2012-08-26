@@ -6,8 +6,8 @@
 		<title></title>
 
              
-    	<link rel="stylesheet" href="<?php echo base_url();?>assets/m/js/lib/jquerymobile/jquery.mobile-1.1.0.min.css" type="text/css" media="screen" />
-    	<link rel="stylesheet" href="<?php echo base_url();?>assets/m/style/my.css" />   
+    	<link rel="stylesheet" href="<?php echo base_url();?>assets/js/lib/jquerymobile/jquery.mobile-1.1.0.min.css" type="text/css" media="screen" />
+    	<link rel="stylesheet" href="<?php echo base_url();?>assets/mobile/style/my.css" />   
 
     </head>
     <body>

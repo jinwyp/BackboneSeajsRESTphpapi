@@ -66,7 +66,6 @@ define(function(require, exports, module) {
 	        
 	        app.model.user1.fetch({success: function(){
 	        	app.view.userview1 = new UserView({ model: app.model.user1 , el: $("#rightbox")});
-	            
 	        }});
 	    },
 	    
