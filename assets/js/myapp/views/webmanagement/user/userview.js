@@ -24,7 +24,6 @@ define(function(require, exports, module) {
 		events: {
 	        "change" : "change",
 	        "click #modify_button" : "SaveUser",
-	        "click #del_button" : "delUser",	        
 	        "click #del_button" : "delUser"	        
 	    },	
 	    
@@ -33,8 +32,8 @@ define(function(require, exports, module) {
 	        // Apply the change to the model
 	        var target = event.target;
 	        var change = {};
-	        change[target.name] = target.value;
-/* 	        console.log(change); */
+	        change[target.name] = target.value; 
+	        console.log(change);
 	        this.model.set(change);	
 	    },
 
@@ -42,12 +41,15 @@ define(function(require, exports, module) {
 	        var self = this;
 	        console.log(this.model);
 	        this.model.save(null, {
-	            success: function () {
+	            success: function () {	  
+	            console.log('11');              
+/*
+	                alert('用户信息保存成功了啊啊');
 	                self.render();
-	                alert('用户信息保存成功');
+*/
 	            },
 	            error: function () {
-	                alert('用户信息保存失败');;
+	                alert('用户信息保存失败');
 	            }
 	        });
 	    },
@@ -59,7 +61,7 @@ define(function(require, exports, module) {
 	                window.history.back();
 	            }
 	        });
-	        return false;
+	        
 	    },
 	    
 	    
