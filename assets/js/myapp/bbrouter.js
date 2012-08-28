@@ -7,11 +7,11 @@ define(function(require, exports, module) {
 	
 	require('./views/webmanagement/headerview');
 	require('./views/webmanagement/footerview');
-	require('./views/webmanagement/leftmenuview');
+	require('./views/webmanagement/leftmenuview');	
+	require('./views/webmanagement/rightboxview');
 	
-	require('./views/webmanagement/user/userlistview');
 	require('./views/webmanagement/user/userview');
-			
+	require('./views/webmanagement/user/userlistview');		
 			
 			
 			
@@ -24,7 +24,8 @@ define(function(require, exports, module) {
 		model:{},
 		view:{},
 		collection:{},
-		htmlbody:$('#pageapp')
+		htmlbody:$('#pageapp'),
+		temp: {}
 	};
 
 	
@@ -43,39 +44,47 @@ define(function(require, exports, module) {
 	    },
 	
 	    initialize: function () {
-	        
-	    },
-		
-		adminUserList: function(pageno) {
 			app.view.header = new HeaderView({ el: $("#headerbox")} );
 			app.view.footer = new FooterView({ el: $("#footerbox")} );		  
 			app.view.leftmenu = new LeftMenuView({ el: $("#leftmenu")} );	 
-			     
+			app.view.rightbox = new RightBoxView({ el: $("#rightbox")} );
+	    },
+	    
+	    renderAll: function(){
+			app.view.header.render();
+			app.view.footer.render();
+			app.view.leftmenu.render();
+			app.view.rightbox.render();
+	    },
+		
+		adminUserList: function(pageno) {
+			this.renderAll();
+						
 	        app.collection.userList1 = new UserCollection();
 	        app.collection.userList1.fetch({success: function(){
-	            app.view.rightbox = new UserListView({model: app.collection.userList1, el: $("#rightbox")});	            
+	        	app.view.userlist = new UserListView({ model: app.collection.userList1 , el: $("#userlist") });
+/* 	            $("#rightbox").append(new UserListView({model: app.collection.userList1, el: $("#userlist")}).el ); */
+	                   
 	        }});
 	    },
 	
 		adminUserDetail: function(id) {
-			app.view.header = new HeaderView({ el: $("#headerbox")} );
-			app.view.footer = new FooterView({ el: $("#footerbox")} );		  
-			app.view.leftmenu = new LeftMenuView({ el: $("#leftmenu")} );	
-			       
-	        app.model.user1 = new UserModel({id: id});		        
-	        
+			this.renderAll();
+						
+	        app.model.user1 = new UserModel({id: id});	
+			
 	        app.model.user1.fetch({success: function(){
-	        	app.view.userview1 = new UserView({ model: app.model.user1 , el: $("#rightbox")});
+	        	
+	        	app.view.userview1 = new UserView({ model: app.model.user1 , el: $("#userlist") });
+/* 	        	$("#rightbox").append(new UserView({model: app.model.user1, el: $("#userlist") }).el);	   */
 	        }});
 	    },
 	    
 	    adminUserAdd: function() {
-		    app.view.header = new HeaderView({ el: $("#headerbox")} );
-			app.view.footer = new FooterView({ el: $("#footerbox")} );		  
-			app.view.leftmenu = new LeftMenuView({ el: $("#leftmenu")} );	
+			this.renderAll();
 	    
 	        app.model.usernew = new UserModel();
-	        app.view.useraddnew = new UserView({model: app.model.usernew, el: $("#rightbox") });
+	        app.view.useraddnew = new UserView({model: app.model.usernew, el: $("#userlist") });
 		},
 	    
 	    

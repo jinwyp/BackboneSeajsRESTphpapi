@@ -2,7 +2,7 @@ define(function(require, exports, module) {
 
 
 
-	var headerviewTemplate = require('baseurl/website/templates/webmanagement/header.tpl');
+	var headerviewTemplate = require('template-webmanagement/header.tpl');
 	
 	window.HeaderView = Backbone.View.extend({
 		

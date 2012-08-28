@@ -1,19 +1,19 @@
 define(function(require, exports, module) {
 
-
-	var footerviewTemplate = require('template-webmanagement/footer.tpl');
+	var rightboxviewTemplate = require('template-webmanagement/rightbox.tpl');
 	
-	window.FooterView = Backbone.View.extend({
+	window.RightBoxView = Backbone.View.extend({
 		
 		initialize: function () {
 	        this.render();
 	    },
 	
 	    render: function () {
-   
-			var template = _.template( footerviewTemplate );
+			var template = _.template( rightboxviewTemplate );
 			
 			$(this.el).html(template);
+			
+			
 			
 	        return this;
 	    }

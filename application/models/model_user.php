@@ -24,7 +24,7 @@ class Model_User extends CI_Model {
 	}
 	 
 
-	public function checkUserExist($username, $password, $table = 'test_user'){		
+	public function checkUserExist($username, $password, $table = 'ci_user'){		
 		
 		$this->db->where('username', $username);
 		$this->db->where('password', sha1($password));
@@ -38,7 +38,7 @@ class Model_User extends CI_Model {
 		return FALSE;
 	}
 	
-	public function regCheckUserExist($username, $email, $password, $table = 'test_user'){
+	public function regCheckUserExist($username, $email, $password, $table = 'ci_user'){
 		
 		
 		$this->db->where('username', $username);
@@ -55,7 +55,7 @@ class Model_User extends CI_Model {
 	}
 	
 	
-	public function addNewUser($table = 'test_user') {
+	public function addNewUser($table = 'ci_user') {
 		$data['username'] = $this->input->post('username');
 		
 		$data['email'] = $this->input->post('email');
@@ -69,7 +69,7 @@ class Model_User extends CI_Model {
 	
 	/**********    RESTFul API     **************/
 	
-	public function getUser($userid, $table = 'test_user'){		
+	public function getUser($userid, $table = 'ci_user'){		
 		
 		$this->db->where('id', $userid);
 		$this->db->where('delstatus', 0);
@@ -85,7 +85,7 @@ class Model_User extends CI_Model {
 	}	
 
 
-	public function getUserList($pageno, $table = 'test_user'){		
+	public function getUserList($pageno, $table = 'ci_user'){		
 		$temppage = ($pageno - 1) * 10;
 		/* $this->db->limit(10, $temppage); */
 		
@@ -102,19 +102,23 @@ class Model_User extends CI_Model {
 	
 	
 /* post 用于添加 */
-	public function postUser($data, $table = 'test_user') {	
+	public function postUser($data, $table = 'ci_user') {	
 		return $this->db->insert($table, $data);				
 	}
 	
+	
+	
 /*  put 用于修改 */
-	public function putUser($userid, $data, $table = 'test_user') {	
+	public function putUser($userid, $data, $table = 'ci_user') {	
 	
 		$this->db->where('id', $userid);			
 		return $this->db->update($table, $data); 		
 	}
 	
+	
+	
 /* delete 用于删除 */
-	public function delUser($userid, $table = 'test_user') {	
+	public function delUser($userid, $table = 'ci_user') {	
 				
 		$data['delstatus'] = 1;		
 		$this->db->where('id', $userid);			

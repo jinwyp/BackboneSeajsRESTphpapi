@@ -1,16 +1,18 @@
+
 // Backbone.ModelBinder v0.1.5
 // (c) 2012 Bart Wood
 // Distributed Under MIT License
 
 (function (factory) {
-    if (typeof define === 'function' && define.amd) {
+    if (typeof define === 'function' && define.cmd) {
         // AMD. Register as an anonymous module.
         define(['underscore', 'jquery', 'backbone'], factory);
     } else {
         // Browser globals
         factory(_, $, Backbone);
     }
-}(function(_, $, Backbone){
+}( this, document, function ( jQuery, window, document, undefined ) {
+(function(_, $, Backbone){
 
     if(!Backbone){
         throw 'Please include Backbone.js before Backbone.ModelBinder.js';
@@ -453,4 +455,5 @@
 
     return Backbone.ModelBinder;
 
+})
 }));

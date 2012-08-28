@@ -1,13 +1,4 @@
-					<div class="rightmenubar hero-unit">
-						<div class="span11 ">
-							<H3>
-								<a href="#admin/user/list">用户管理</a>
-							</H3>
-						</div>
-						<div class="span1 ">
-								<a href="#admin/user/add" class="btn btn-primary ">新增</a>
-						</div>
-					</div>
+
 					
 					<div class="rightsearchoptionbox hero-unit">
 						<div class="row-fluid">
@@ -76,7 +67,19 @@
 							</thead>
 
 							<tbody id="userlistview" >
-								
+								{{#each userlist}}  
+								<tr>
+									<td><a href="#admin/user/{{ id }}" >{{ id }} </a></td>
+									<td><a href="#admin/user/{{ id }}" >{{ username }}</a></td>
+									<td>{{ email }}</td>
+									<td>{{ mobile }}</td>
+									<td>{{ lastname }}{{ firstname }}</td>
+									<td>{{ datecreated }}</td>
+									<td>
+										是 <a href="" id="" onclick="return confirm('确定吗?');">取消资格</a>
+									</td>
+								</tr>
+								{{/each}}
 							</tbody>
 						</table>
 						

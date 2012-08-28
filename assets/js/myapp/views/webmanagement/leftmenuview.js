@@ -2,7 +2,7 @@ define(function(require, exports, module) {
 
 
 
-	var leftmenuviewTemplate = require('baseurl/website/templates/webmanagement/leftmenu.tpl');
+	var leftmenuviewTemplate = require('template-webmanagement/leftmenu.tpl');
 	
 	window.LeftMenuView = Backbone.View.extend({
 		
