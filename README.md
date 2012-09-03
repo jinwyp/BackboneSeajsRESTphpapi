@@ -19,11 +19,11 @@
 
 ## Structure 结构说明
 
-1. 程序的第一个入口为 通过CodeIgniter 调用第一个controllers 在application/controllers/welcome.php 文件. 然后在welcome.php调用第一个view文件在/application/views/mobile.php
+1. 程序的第一个入口为 通过CodeIgniter 调用第一个controllers 在application/controllers/welcome.php 文件. 然后在该页面判断是否是手机浏览器 根据UserAgent判断跳转到view文件 手机的在/application/views/mobile.php 网站的是website.php
 
-2. mobile.php 基本为一个空壳文件, 通过引入seajs和一些基本css文件(包括jQuery Mobile的css文件jquery.mobile-1.1.0.min.css和自己的样式文件my.css) 实际上如果使用less做为css文件,那么大部分css都可以使用seajs来加载less样式文件.
+2. website.php和 mobile.php 基本为一个空壳index文件, 通过引入seajs和一些基本css文件(包括jQuery Mobile的css文件jquery.mobile-1.1.0.min.css和自己的样式文件my.css) 实际上如果使用less做为css文件,那么大部分css都可以使用seajs来加载less样式文件.
 
-3. mobile.php 通过<script 标签 引入 /assets/m/js/lib/sea/sea.js 库 然后调用第一个入口文件 assets/m/js/config.js文件.
+3. website.php 和 mobile.php 通过<script 标签 引入 /assets/m/js/lib/sea/sea.js 库 然后调用第一个入口文件 assets/m/js/config.js文件.
 
 4. 所有的前端页面在/assets/m/ 里面 其中js/lib/ 下的大部分原生库都是不需要用到的,因为加载的是assets/m/js/lib/seajs-modules改过的库. 在config.js文件中设置了很多alias别名,例如 'jquery': 'http://localhost:8080/assets/m/js/lib/seajs-modules/jquery/1.7.2/jquery.js', 方便以后在文件中不需要在输入超长的路径了.
 同时在还调用了seajs的插件 	`preload: ['plugin-json', 'plugin-text', 'plugin-coffee', 'plugin-less'],` 可以方便解析json数据,文本数据(用来解析html模板文件), coffee的js语法, 和 less样式文件.
