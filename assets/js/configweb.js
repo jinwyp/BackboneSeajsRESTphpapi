@@ -32,7 +32,7 @@ seajs.config({
 	    'template-website': 'assets/website/templates-website',
 	    'template-mobile': 'assets/mobile/templates',
 		
-		'baseurl': 'http://localhost:8080/assets/'
+		'baseurl': '/assets/'
 	},
 	
 	preload: ['plugin-json', 'plugin-text', 'plugin-coffee', 'plugin-less'],
