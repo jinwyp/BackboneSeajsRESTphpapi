@@ -7,12 +7,12 @@ seajs.config({
 	    'backbone': 'assets/js/seajs-modules/backbone/0.9.2/backbone.js',
 	    'backbonemodelbinder': 'assets/js/seajs-modules/backbonemodelbinder/backbone.modelbinder.js',
 	    'backbonevalidation': 'assets/js/seajs-modules/backbonevalidation/backbone-validation-amd.js',
-	    'handlebars': 'assets/js/seajs-modules/handlebars/1.0.0/handlebars.js',
-	    'coffee': 'assets/js/seajs-modules/coffee/1.3.3/coffee-script.js',
-	    'less': 'assets/js/seajs-modules/less/1.3.0/less.js',
+	    'handlebars': 'http://localhost:8080/assets/js/seajs-modules/handlebars/1.0.0/handlebars.js',
+	    'coffee': 'http://localhost:8080/assets/js/seajs-modules/coffee/1.3.3/coffee-script.js',
+	    'less': 'http://localhost:8080/assets/js/seajs-modules/less/1.3.0/less.js',
 	    'jqm': 'assets/js/seajs-modules/jquerymobile/jquery.mobile-1.1.0.min.js',
 	    
-	    'bootstrap': 'assets/js/seajs-modules/bootstrap/bootstrap.js',	    
+	    'bootstrap': 'http://localhost:8080/assets/js/seajs-modules/bootstrap/bootstrap.js',	    
 	    'tbs-affix': 'assets/js/seajs-modules/bootstrap/bootstrap-affix.js',
 	    'tbs-alert': 'assets/js/seajs-modules/bootstrap/bootstrap-alert.js',
 	    'tbs-button': 'assets/js/seajs-modules/bootstrap/bootstrap-button.js',
@@ -32,7 +32,7 @@ seajs.config({
 	    'template-website': 'assets/website/templates-website',
 	    'template-mobile': 'assets/mobile/templates',
 		
-		'baseurl': './assets/'
+		'baseurl': 'http://localhost:8080/assets/'
 	},
 	
 	preload: ['plugin-json', 'plugin-text', 'plugin-coffee', 'plugin-less'],

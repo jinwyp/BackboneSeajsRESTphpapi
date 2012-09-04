@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
 
 
-	var regviewTemplate = require('template-website/user/reg.tpl');
+	var regviewTemplate = require('baseurl/website/templates-website/user/reg.tpl');
 	
 	window.RegView = Backbone.View.extend({
 /* 		_modelBinder: undefined, */
