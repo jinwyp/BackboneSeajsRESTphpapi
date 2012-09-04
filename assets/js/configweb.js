@@ -6,12 +6,13 @@ seajs.config({
         'underscore': 'http://localhost:8080/assets/js/seajs-modules/underscore/1.3.3/underscore.js',
 	    'backbone': 'http://localhost:8080/assets/js/seajs-modules/backbone/0.9.2/backbone.js',
 	    'backbonemodelbinder': 'http://localhost:8080/assets/js/seajs-modules/backbonemodelbinder/backbone.modelbinder.js',
+	    'backbonevalidation': 'http://localhost:8080/assets/js/seajs-modules/backbonevalidation/backbone-validation-amd.js',
 	    'handlebars': 'http://localhost:8080/assets/js/seajs-modules/handlebars/1.0.0/handlebars.js',
 	    'coffee': 'http://localhost:8080/assets/js/seajs-modules/coffee/1.3.3/coffee-script.js',
 	    'less': 'http://localhost:8080/assets/js/seajs-modules/less/1.3.0/less.js',
 	    'jqm': 'http://localhost:8080/assets/js/seajs-modules/jquerymobile/jquery.mobile-1.1.0.min.js',
 	    
-	    
+	    'bootstrap': 'http://localhost:8080/assets/js/seajs-modules/bootstrap/bootstrap.js',	    
 	    'tbs-affix': 'http://localhost:8080/assets/js/seajs-modules/bootstrap/bootstrap-affix.js',
 	    'tbs-alert': 'http://localhost:8080/assets/js/seajs-modules/bootstrap/bootstrap-alert.js',
 	    'tbs-button': 'http://localhost:8080/assets/js/seajs-modules/bootstrap/bootstrap-button.js',
@@ -38,7 +39,7 @@ seajs.config({
 });
 
 
-seajs.use('baseurl/js/init');
+seajs.use('baseurl/js/initweb');	
 
 
 	

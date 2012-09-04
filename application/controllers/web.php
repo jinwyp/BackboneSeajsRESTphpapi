@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Web extends CI_Controller {
 
 	function __construct()
 	{
@@ -17,12 +17,12 @@ class Welcome extends CI_Controller {
 			$this->load->view('mobile');
 		}else{
 			$this->load->view('website');
+/* 			$this->load->view('websiteadmin'); */
 		}
-
-
-		
 		
 	}
+	
+
 }
 
 ?>

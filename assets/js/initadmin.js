@@ -12,7 +12,7 @@ define(function(require) {
 	window._ = _;
 	window.Handlebars = Handlebars;
 	
-
+	require('bootstrap')($);
 /*
 	require('tbs-affix')($);	
 	require('tbs-alert')($);
@@ -58,7 +58,7 @@ define(function(require) {
 */
 	
 	$(function() {				
-		var BBRouter = require('./myapp/bbrouter');
+		var BBRouter = require('./myapp/routeradmin');
         BBRouter.initialize();
 		
 /*

@@ -37,6 +37,7 @@ define(function(require, exports, module) {
 	        "user/reg" : "regUser",   	////jQuery mobile app
 
 
+
 	        
 	        "admin/user/list" : "adminUserList",		//Twitter Bootstrap app
 	        "admin/user/add" : "adminUserAdd",        //Twitter Bootstrap app
@@ -73,8 +74,7 @@ define(function(require, exports, module) {
 						
 	        app.model.user1 = new UserModel({id: id});	
 			
-	        app.model.user1.fetch({success: function(){
-	        	
+	        app.model.user1.fetch({success: function(){	        	
 	        	app.view.userview1 = new UserView({ model: app.model.user1 , el: $("#userlist") });
 /* 	        	$("#rightbox").append(new UserView({model: app.model.user1, el: $("#userlist") }).el);	   */
 	        }});

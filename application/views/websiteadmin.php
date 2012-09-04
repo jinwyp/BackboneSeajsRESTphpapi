@@ -2,7 +2,7 @@
 <html>
     <head>
             
-	    <title>个税计算器</title>
+	    <title>网站管理后台</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta name="description" content="">
 	    <meta name="author" content="">
@@ -12,7 +12,7 @@
 
 	    <link href="<?php echo base_url();?>assets/website/styles/bootstrap.css" rel="stylesheet">
 	    <link href="<?php echo base_url();?>assets/website/styles/bootstrap-responsive.css" rel="stylesheet">
-		<link href="<?php echo base_url();?>assets/website/styles/website.css" rel="stylesheet">
+		<link href="<?php echo base_url();?>assets/website/styles/websiteadmin.css" rel="stylesheet">
 
 
 	    <link rel="shortcut icon" href="<?php echo base_url();?>assets/website/ico/favicon.ico">
@@ -24,42 +24,50 @@
     <body>
 
 
+		<div class="navbar navbar-inverse navbar-fixed-top" id="headerbox">
+		</div>
+		
+		
+		
+		<div class="container-fluid" id="mainbox">
+			<div class="row-fluid">
+				<div class="span2" id="leftmenu" >
 
-    <div class="navbar navbar-inverse navbar-fixed-top " id="headerbox">
+				</div>
+				<!--/span2-->
+				
+				<div class="span10" id="rightbox">
 
-    </div>
-    
-    
-
-    <div class="container-fluid" id="mainbox">
-
-    </div><!--/.fluid-container-->
-    
-	<div class="row-fluid" id="footerbox">
-		<footer>
-			<p>&copy; Company 2012</p>
-		</footer>
-	</div>
+				</div>
+				<!--/span10-->
+				
+			</div>
+			<!--/row-->
+			
+			<footer id="footerbox">
+				
+			</footer>
+			
+		</div>
+		<!--/.fluid-container-->
 		
 		
 
 
 		<script src="<?php echo base_url();?>/assets/js/sea/sea.js"></script>
 		<script>
-			seajs.use('<?php echo base_url();?>/assets/js/configweb');	
-	
-			
+			seajs.use('<?php echo base_url();?>/assets/js/configadmin');
+		
+
 		</script>
 		
-				
+<!--				
 		<script src="<?php echo base_url();?>/assets/js/lib/jquery/jquery-1.7.2.min.js"></script>
-<!-- 		<script src="<?php echo base_url();?>/assets/js/lib/jquerymobile/jquery.mobile-1.1.0.min.js"></script> -->
+		<script src="<?php echo base_url();?>/assets/js/lib/jquerymobile/jquery.mobile-1.1.0.min.js"></script>
 		
 		<script src="<?php echo base_url();?>/assets/js/lib/underscore/underscore.js"></script>
 		<script src="<?php echo base_url();?>/assets/js/lib/backbone/backbone.js"></script>
-		<script src="<?php echo base_url();?>/assets/js/lib/backbonemodelbinder/backbone.modelbinder.js"></script>
-		<script src="<?php echo base_url();?>/assets/js/lib/backbonevalidation/backbone-validation.js"></script>
-		
+-->
 
 
 

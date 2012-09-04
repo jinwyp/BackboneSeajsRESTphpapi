@@ -101,8 +101,7 @@ $users = array(
     	if($result === FALSE)  
         {  
             $this->response(array('status' => 'failed'));  
-        }else  
-        {  
+        }else{  
             $message = array('id' => $this->get('id'),  'message' => 'DELETED!');
         
 	        $this->response($message, 200); // 200 being the HTTP response code
