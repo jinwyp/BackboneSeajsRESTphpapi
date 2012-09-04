@@ -44,21 +44,21 @@
 		
 
 
-		<script src="<?php echo base_url();?>/assets/js/sea/sea.js"></script>
+		<script src="<?php echo base_url();?>assets/js/sea/sea.js"></script>
 		<script>
-			seajs.use('<?php echo base_url();?>/assets/js/configweb');	
+			seajs.use('<?php echo base_url();?>assets/js/configweb');	
 	
 			
 		</script>
 		
 				
-		<script src="<?php echo base_url();?>/assets/js/lib/jquery/jquery-1.7.2.min.js"></script>
-<!-- 		<script src="<?php echo base_url();?>/assets/js/lib/jquerymobile/jquery.mobile-1.1.0.min.js"></script> -->
+		<script src="<?php echo base_url();?>assets/js/lib/jquery/jquery-1.7.2.min.js"></script>
+<!-- 		<script src="<?php echo base_url();?>assets/js/lib/jquerymobile/jquery.mobile-1.1.0.min.js"></script> -->
 		
-		<script src="<?php echo base_url();?>/assets/js/lib/underscore/underscore.js"></script>
-		<script src="<?php echo base_url();?>/assets/js/lib/backbone/backbone.js"></script>
-		<script src="<?php echo base_url();?>/assets/js/lib/backbonemodelbinder/backbone.modelbinder.js"></script>
-		<script src="<?php echo base_url();?>/assets/js/lib/backbonevalidation/backbone-validation.js"></script>
+		<script src="<?php echo base_url();?>assets/js/lib/underscore/underscore.js"></script>
+		<script src="<?php echo base_url();?>assets/js/lib/backbone/backbone.js"></script>
+		<script src="<?php echo base_url();?>assets/js/lib/backbonemodelbinder/backbone.modelbinder.js"></script>
+		<script src="<?php echo base_url();?>assets/js/lib/backbonevalidation/backbone-validation.js"></script>
 		
 
 
