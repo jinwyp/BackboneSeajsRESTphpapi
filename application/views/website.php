@@ -57,7 +57,7 @@
 		
 		<script src="<?php echo base_url();?>assets/js/lib/underscore/underscore.js"></script>
 		<script src="<?php echo base_url();?>assets/js/lib/backbone/backbone.js"></script>
-		<script src="<?php echo base_url();?>assets/js/lib/backbonemodelbinder/backbone.modelbinder.js"></script>
+		<script src="<?php echo base_url();?>assets/js/lib/backbonemodelbinder/backbone_modelbinder.js"></script>
 		<script src="<?php echo base_url();?>assets/js/lib/backbonevalidation/backbone-validation.js"></script>
 		
 
