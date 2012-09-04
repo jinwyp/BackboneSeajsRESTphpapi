@@ -6,7 +6,6 @@
 				<hr>
 				<div class="span10  form-horizontal" id="registerform" >
 
-					
 				    <div class="control-group">
 				        <label for="username" class="control-label">用户名：</label>
 					        <div class="controls">
@@ -40,14 +39,14 @@
 						<label  class="control-label"></label>
 					        <div class="controls">
 						        <button id="regbutton" class="btn btn-primary btn-large" >立即注册</button>
-						        </div>
+					        </div>
 					</div>
 	
-					<div style="display:none" class="alert alert-error">
-						<strong>哎呦!</strong> 您还没有填写完整！
+					<div style="display:none" class="alert alert-error offset1">
+						<strong>哎呀!</strong> 您还没有填写完整！
 					</div>
-					<div style="display:none" class="alert alert-success">
-						<strong>恭喜!</strong> 您注册成功
+					<div style="display:none" class="alert alert-success offset1">
+						<strong>恭喜!</strong> 您注册成功!
 					</div>
 				</div><!--/span8-->	
 	    </div><!--/row-->

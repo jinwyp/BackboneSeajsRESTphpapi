@@ -1,13 +1,14 @@
 define(function(require, exports, module) {
 
 
-	var regviewTemplate = require('baseurl/website/templates-website/user/reg.tpl');
+	var regviewTemplate = require('tplurl-website/user/reg.tpl');
+	
 	
 	window.RegView = Backbone.View.extend({
-/* 		_modelBinder: undefined, */
+
 		
 		initialize: function () {
-/* 			this._modelBinder = new Backbone.ModelBinder(); */
+			this._modelBinder = new Backbone.ModelBinder();
 	        this.render();
 	    },
 	
@@ -66,10 +67,12 @@ define(function(require, exports, module) {
 				}
 			});
 			
-/* 			this.model.on('validated:valid', this.valid, this); */
-/* 			this.model.on('validated:invalid', this.invalid, this); */
+/*
+			this.model.on('validated:valid', this.valid, this);
+			this.model.on('validated:invalid', this.invalid, this);
+*/
 	
-/* 			this._modelBinder.bind(this.model, this.$('#registerform')); */
+			this._modelBinder.bind(this.model, this.$('#registerform'));
 
 		    return this;
 	    },
@@ -86,12 +89,15 @@ define(function(require, exports, module) {
 	        this.model.set(app.temp.change);
 */
 	        
+/*
 			var $el = $(event.target);
 			this.model.set($el.attr('name'), $el.val());
+*/
 			
 	        console.dir(this.model.toJSON());
 	    },
 	    
+/*
 		valid: function(){
 			this.$('.alert-error').hide();
 			this.$('.alert-success').fadeIn();
@@ -101,6 +107,7 @@ define(function(require, exports, module) {
 			this.$('.alert-error').fadeIn();
 		},
 		
+*/
 		submit: function(e){
 			e.preventDefault();
 			this.$('.alert').hide();

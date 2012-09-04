@@ -1,6 +1,3 @@
-define(function(require, exports, module) {
-
-	
 // Backbone.Validation v0.6.2
 //
 // Copyright (c) 2011-2012 Thomas Pedersen
@@ -547,5 +544,3 @@ Backbone.Validation = (function(_){
 
   return Validation;
 }(_));
-
-})

@@ -7,7 +7,6 @@ define(function(require, exports, module) {
 	
 	require('./views/website/headerview');
 
-
 	require('./views/website/user/regview');
 	require('./views/website/user/loginview');
 	
