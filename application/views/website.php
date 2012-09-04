@@ -45,10 +45,8 @@
 
 
 		<script src="<?php echo base_url();?>assets/js/sea/sea.js"></script>
-		<script>
+		<script type="text/javascript">
 			seajs.use('<?php echo base_url();?>assets/js/configweb');	
-	
-			
 		</script>
 		
 				
