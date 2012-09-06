@@ -3,23 +3,23 @@ define(function(require) {
 	
 
 
-/*
+
 	var $ = jQuery = require('jquery');
 	var Backbone = require('backbone');
 	var _ = require('underscore');
-*/
+
 	var Handlebars = require('handlebars');
 
 
 	
 
-/*
+
 	window.$ = $;
 
 	window.Backbone = Backbone;
 	window._ = _;
 	Backbone.Validation = require('backbonevalidation');
-*/
+	Backbone.ModelBinder = require('backbonemodelbinder');
 
 	window.Handlebars = Handlebars;
 

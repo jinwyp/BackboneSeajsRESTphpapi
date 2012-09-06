@@ -8,8 +8,8 @@ seajs.config({
         'underscore': 'modules/underscore/1.3.3/underscore.js',
 	    'backbone': 'modules/backbone/0.9.2/backbone.js',	    
 	    
-	    'backbonemodelbinder': '/assets/js/lib/backbonemodelbinder/backbone-modelbinder.js',
-	    'backbonevalidation': '/assets/js/lib/backbonevalidation/backbone-validation-amd.js',	    
+	    'backbonemodelbinder': 'modules/backbonemodelbinder/backbone-modelbinder.js',
+	    'backbonevalidation': 'modules/backbonevalidation/backbone-validation-amd.js',	    
 	    
 	    'handlebars': 'modules/handlebars/1.0.0/handlebars.js',
 	    'coffee': 'modules/coffee/1.3.3/coffee-script.js',
