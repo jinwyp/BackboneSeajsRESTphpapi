@@ -69,8 +69,8 @@
 							<tbody id="userlistview" >
 								{{#each userlist}}  
 								<tr>
-									<td><a href="#admin/user/{{ id }}" >{{ id }} </a></td>
-									<td><a href="#admin/user/{{ id }}" >{{ username }}</a></td>
+									<td><a href="#user/{{ id }}" >{{ id }} </a></td>
+									<td><a href="#user/{{ id }}" >{{ username }}</a></td>
 									<td>{{ email }}</td>
 									<td>{{ mobile }}</td>
 									<td>{{ lastname }}{{ firstname }}</td>

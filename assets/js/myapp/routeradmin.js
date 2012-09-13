@@ -33,15 +33,9 @@ define(function(require, exports, module) {
 	
 	var AppRouter = Backbone.Router.extend({
 	    routes: {    		
-    		"user/login" : "loginUser",  //jQuery mobile app
-	        "user/reg" : "regUser",   	////jQuery mobile app
-
-
-
-	        
-	        "admin/user/list" : "adminUserList",		//Twitter Bootstrap app
-	        "admin/user/add" : "adminUserAdd",        //Twitter Bootstrap app
-    		"admin/user/:id" : "adminUserDetail"		//Twitter Bootstrap app    		 
+	        "user/list" : "adminUserList",		//Twitter Bootstrap app
+	        "user/add" : "adminUserAdd",        //Twitter Bootstrap app
+    		"user/:id" : "adminUserDetail"		//Twitter Bootstrap app    		 
 	    },
 	
 	    initialize: function () {

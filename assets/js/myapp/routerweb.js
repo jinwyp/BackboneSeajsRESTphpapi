@@ -35,7 +35,8 @@ define(function(require, exports, module) {
 	    routes: {    		
     		"login" : "loginUser",  
 	        "reg" : "regUser",   	
-	        "" : "indexweb" 
+	        "" : "indexweb"
+
 
 		 
 	    },
@@ -48,7 +49,7 @@ define(function(require, exports, module) {
 	    
 		
 /*
-		indexweb: function(pageno) {
+		adminindex: function(pageno) {
 
 						
 	        app.collection.userList1 = new UserCollection();
