@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'fbairnet_ci';
+$db['default']['username'] = 'fbair';
 $db['default']['password'] = 'jin2011';
-$db['default']['database'] = 'fbairnet_ci';
+$db['default']['database'] = 'ci';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
