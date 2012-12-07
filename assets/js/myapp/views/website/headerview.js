@@ -9,7 +9,8 @@ define(function(require, exports, module) {
 		initialize: function () {
 	        this.render();
 	    },
-	
+	    
+	    	
 	    render: function () {
    
 			app.tpl.headerview = Handlebars.compile( headerviewTemplate );

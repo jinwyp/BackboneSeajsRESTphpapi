@@ -45,6 +45,10 @@
 					<div style="display:none" class="alert alert-error offset1">
 						<strong>哎呀!</strong> 您还没有填写完整！
 					</div>
+					<div style="display:none" class="alert alert-error2 offset1">
+						<strong>糟糕!</strong> 注册失败，服务器打瞌睡了！
+					</div>
+
 					<div style="display:none" class="alert alert-success offset1">
 						<strong>恭喜!</strong> 您注册成功!
 					</div>

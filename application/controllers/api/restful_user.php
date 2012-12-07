@@ -62,7 +62,7 @@ $users = array(
 	            $this->response(array('status' => 'failed'));  
 	        }else  
 	        {  
-	            $message = array( 'username' => $data['username'], 'email' => $data['email'], 'password' =>$data['password'],  'message' => '您已注册成功!');
+	            $message = array( 'username' => $data['username'], 'email' => $data['email'],  'message' => '您已注册成功!');
         		$this->response($message, 200); // 200 being the HTTP response code
 	        }
         }
@@ -87,7 +87,7 @@ $users = array(
 	            $this->response(array('status' => 'failed'));  
 	        }else  
 	        {  
-	            $message = array( 'username' => $data['username'], 'email' => $data['email'], 'password' =>$data['password'],  'message' => '您已修改成功!');
+	            $message = array( 'username' => $data['username'], 'email' => $data['email'],  'message' => '您已修改成功!');
         		$this->response($message, 200); // 200 being the HTTP response code
 	        }
         }

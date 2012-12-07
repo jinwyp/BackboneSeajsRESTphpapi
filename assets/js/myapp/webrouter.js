@@ -1,7 +1,8 @@
 define(function(require, exports, module) {
 
 
-	
+	require('./model/usersession');
+
 	require('./model/usermodel');
 	require('./collection/usercollection');
 	
@@ -9,6 +10,7 @@ define(function(require, exports, module) {
 
 	require('./views/website/user/regview');
 	require('./views/website/user/loginview');
+	require('./views/website/user/usercenterview');
 	
 		
 			
@@ -24,7 +26,7 @@ define(function(require, exports, module) {
 		view:{},
 		tpl:{},
 		collection:{},
-		htmlbody:$('body'),
+		htmlbody:{},
 		temp: {}
 	};
 
@@ -32,18 +34,29 @@ define(function(require, exports, module) {
 	
 	
 	var AppRouter = Backbone.Router.extend({
-	    routes: {    		
+	    routes: {  
+	    	"" : "indexweb",  		
     		"login" : "loginUser",  
-	        "reg" : "regUser",   	
-	        "" : "indexweb"
-
-
+	        "reg" : "regUser",
+	        
 		 
 	    },
 	
 	    initialize: function () {
+	    	app.view.header = new HeaderView({ el: $("#headerbox")} );
+
+	    	app.model.session = new UserSession();
+console.log (app.model.session.login_state );
+	    	if(app.model.session.login_state){
+	    		//进入登陆后页面
+	    		app.model.usernew = new UserModel();
+				app.view.mainbox = new UserCenterView({model: app.model.usernew, el: $("#mainbox")} );
+
+	    	}else{
+
+	    	}
 	  
-			app.view.header = new HeaderView({ el: $("#headerbox")} );
+			
 
 	    },
 	    

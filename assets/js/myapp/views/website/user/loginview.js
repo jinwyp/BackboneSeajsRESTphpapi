@@ -12,9 +12,9 @@ define(function(require, exports, module) {
 	
 	    render: function () {
    
-			app.tpl.loginview = Handlebars.compile( loginviewTemplate );
+			app.tpl.login = Handlebars.compile( loginviewTemplate );
 			
-			$(this.el).html(app.tpl.loginview);
+			$(this.el).html(app.tpl.login);
 			
 	        return this;
 	    }

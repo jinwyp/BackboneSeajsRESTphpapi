@@ -1,16 +1,18 @@
-
 define(function(require) {	
 	
 	var $ = jQuery = require('jquery');
 	var Backbone = require('backbone');
 	var _ = require('underscore');
 	var Handlebars = require('handlebars');
-	require('backbonemodelbinder');
-	
+
 	window.$ = $;
 	window.Backbone = Backbone;
 	window._ = _;
 	window.Handlebars = Handlebars;
+
+	Backbone.Validation = require('backbonevalidation');
+	Backbone.ModelBinder = require('backbonemodelbinder');
+
 	
 	require('bootstrap')($);
 /*

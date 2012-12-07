@@ -165,17 +165,35 @@ seajs._config = {
    * The safe wrapper of console.log/error/...
    */
   util.log = function() {
-    if (typeof console !== 'undefined') {
-      var args = Array.prototype.slice.call(arguments)
+    if (typeof console === 'undefined') return
 
-      var type = 'log'
-      var last = args[args.length - 1]
-      console[last] && (type = args.pop())
+    var args = Array.prototype.slice.call(arguments)
 
-      // Only show log info in debug mode
-      if (type === 'log' && !seajs.debug) return
+    var type = 'log'
+    var last = args[args.length - 1]
+    console[last] && (type = args.pop())
 
+    // Only show log info in debug mode
+    if (type === 'log' && !seajs.debug) return
+
+    if (console[type].apply) {
       console[type].apply(console, args)
+      return
+    }
+
+    // See issue#349
+    var length = args.length
+    if (length === 1) {
+      console[type](args[0])
+    }
+    else if (length === 2) {
+      console[type](args[0], args[1])
+    }
+    else if (length === 3) {
+      console[type](args[0], args[1], args[2])
+    }
+    else {
+      console[type](args.join(' '))
     }
   }
 
@@ -325,6 +343,10 @@ seajs._config = {
       else if (util.isFunction(rule)) {
         ret = rule(ret)
       }
+    }
+
+    if (!isAbsolute(ret)) {
+      ret = realpath(dirname(pageUri) + ret)
     }
 
     if (ret !== uri) {
@@ -785,9 +807,8 @@ seajs._config = {
             }
           }
           // Maybe failed to fetch successfully, such as 404 or non-module.
-          // // In these cases, module.status stay at FETCHING or FETCHED.
+          // In these cases, just call cb function directly.
           else {
-            util.log('It is not a valid CMD module: ' + uri)
             cb()
           }
         }
@@ -1226,7 +1247,7 @@ seajs._config = {
     loaderScript = scripts[scripts.length - 1]
   }
 
-  var loaderSrc = util.getScriptAbsoluteSrc(loaderScript) ||
+  var loaderSrc = (loaderScript && util.getScriptAbsoluteSrc(loaderScript)) ||
       util.pageUri // When sea.js is inline, set base to pageUri.
 
   var base = util.dirname(getLoaderActualSrc(loaderSrc))
@@ -1242,7 +1263,7 @@ seajs._config = {
   config.base = base
 
 
-  var dataMain = loaderScript.getAttribute('data-main')
+  var dataMain = loaderScript && loaderScript.getAttribute('data-main')
   if (dataMain) {
     config.main = dataMain
   }

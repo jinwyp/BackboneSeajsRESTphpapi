@@ -1,32 +1,18 @@
-
 define(function(require) {	
 	
-
-
-
 	var $ = jQuery = require('jquery');
 	var Backbone = require('backbone');
 	var _ = require('underscore');
-
 	var Handlebars = require('handlebars');
 
-
-	
-
-
 	window.$ = $;
-
 	window.Backbone = Backbone;
 	window._ = _;
+	window.Handlebars = Handlebars;
+
 	Backbone.Validation = require('backbonevalidation');
 	Backbone.ModelBinder = require('backbonemodelbinder');
 
-	window.Handlebars = Handlebars;
-
-
-
-	
-	
 	
 	require('bootstrap')($);
 /*
@@ -45,21 +31,12 @@ define(function(require) {
 	require('tbs-typeahead')($);
 */
 
-
-
-
-
 	
 	$(function() {				
-		var BBRouter = require('./myapp/routerweb');
+		var BBRouter = require('./myapp/webrouter');
         BBRouter.initialize();
 		
-
-		
 	});
-	
-	
-
 });
 
 

@@ -1,21 +1,21 @@
 define(function(require, exports, module) {
 
 	window.UserModel = Backbone.Model.extend({
-		urlRoot: "./api/restful_user/user/id",
+		urlRoot: "/index.php/api/restful_user/user/id",
 	
-/*
+
 	    defaults: {
-	        id: null,
-	        username: "",
-	        password: "",
-	        password2:"",
-	        email: "",
-	        mobile: "",
-	        firstname: "",
-	        lastname: "",
-	        datecreated: ""
+	        id: null
+	        // username: "",
+	        // password: "",
+	        // password2:"",
+	        // email: "",
+	        // mobile: "",
+	        // firstname: "",
+	        // lastname: "",
+	        // datecreated: ""
 	    },		
-*/
+
 	    
 	    validation: {
 		    username: [{

@@ -13,8 +13,8 @@ define(function(require, exports, module) {
 	    },
 	
 	    render: function () {
-		   	app.tpl.regview = Handlebars.compile( regviewTemplate );
-			$(this.el).html(app.tpl.regview);
+		   	app.tpl.reg = Handlebars.compile( regviewTemplate );
+			$(this.el).html(app.tpl.reg);
 			
 			Backbone.Validation.bind(this, {
 				valid: function(view, attr, selector) {
@@ -39,7 +39,6 @@ define(function(require, exports, module) {
 					var group = control.parents(".control-group");
 					group.removeClass("success");
 					group.addClass("error");
-					console.log('bad');
 					
 					if (control.data("error-style") === "tooltip"){
 						var position = control.data("tooltip-position") || "right";
@@ -83,13 +82,11 @@ define(function(require, exports, module) {
 	    },
 	    
 	    changeModel: function (event) {
-/*
-	        app.temp.change = {};
+
+/*	        app.temp.change = {};
 	        app.temp.change[event.target.name] = event.target.value;
 	        this.model.set(app.temp.change);
-*/
-	        
-/*
+
 			var $el = $(event.target);
 			this.model.set($el.attr('name'), $el.val());
 */
@@ -111,11 +108,20 @@ define(function(require, exports, module) {
 		submit: function(e){
 			e.preventDefault();
 			this.$('.alert').hide();
-			
-	        console.dir(this.model.toJSON());
-			
+					
 			if(this.model.isValid(true)){
-				this.$('.alert-success').fadeIn();
+				
+
+		        this.model.save(null, {
+		            success: function (model, response) {	              
+						this.$('.alert-success').fadeIn();
+						console.log(model,response);
+		            },
+		            error: function (model, response) {
+		                this.$('.alert-error2').fadeIn();
+						
+		            }
+		        });
 			}
 			else {
 				this.$('.alert-error').fadeIn();
