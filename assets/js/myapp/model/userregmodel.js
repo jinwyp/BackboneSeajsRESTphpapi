@@ -1,9 +1,8 @@
 define(function(require, exports, module) {
 
-	window.UserModel = Backbone.Model.extend({
-		urlRoot: "/index.php/api/restful_user/user/id",
+	window.UserRegModel = Backbone.Model.extend({
+		urlRoot: "/index.php/api/restful_userreg/user/id",
 	
-
 	    defaults: {
 	        id: null
 	        // username: "",
@@ -14,7 +13,7 @@ define(function(require, exports, module) {
 	        // firstname: "",
 	        // lastname: "",
 	        // datecreated: ""
-	    },		
+	    },	
 
 	    
 	    validation: {
@@ -23,12 +22,12 @@ define(function(require, exports, module) {
 				msg: '请填写用户名'
 		    },{
 		    	rangeLength: [6, 15],
-		    	msg: '用户名长度为6-15个字符或数字'
+		    	msg: '用户名长度为6-16个字符或数字'
 		    }],	
 		    
 			email: [{
 				required: true,
-				msg: '请填入邮箱地址'
+				msg: '请填写您常用邮箱'
 			},{
 				pattern: 'email',
 				msg: '邮箱格式不正确，请重新填写'

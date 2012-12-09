@@ -3,7 +3,7 @@ define(function(require, exports, module) {
 
 		
 	window.UserCollection = Backbone.Collection.extend({
-	    model: UserModel,			
+	    model: UserRegModel,			
 	    url: "/index.php/api/restful_user/users"			
 	});
 	

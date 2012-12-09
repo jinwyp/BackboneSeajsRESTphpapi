@@ -1,21 +1,14 @@
-		<div class="navbar-inner">
-				
-			<div class="container-fluid">
-			  <a class="brand" href="#">个税计算器 logo</a>
-			  
-				
-					<p class=" navbar-text pull-right ">
-					  <a href="#login" class="navbar-link menubar">登陆</a>
-					  <a href="#reg" class="navbar-link menubar" >注册</a>
-					</p>
-				<div class="nav-collapse collapse">	
-					<ul class="nav">
-					  <li class="active"><a href="#">首页</a></li>
-					  <li><a href="#about">关于</a></li>
-					  <li><a href="#contact">联系我们</a></li>
-					
-					</ul>
-				</div><!--/.nav-collapse -->
-			</div>
-			
-		</div>
+<div class="row-fluid">
+	<div class="span8 offset2 regtitle">
+
+		<h2>欢迎使用中国最好用的个税计算器</h2>
+		<p>如果您还不知道中国的个税有多重，快试试吧。你本来可以拿双倍工资，但一半都被国家拿走了</p>
+		<hr>
+
+		<div class="row-fluid">
+			<div class="span10 offset1">     
+				首页 首页
+			</div>   
+		</div><!--/row-->
+	</div><!--/span8-->	
+</div><!--/row-->

@@ -1,8 +1,6 @@
 define(function(require, exports, module) {
 
-
-
-	var headerviewTemplate = require('tplurl-website/header.tpl');
+	app.tpl.headerview = require('tplurl-website/header.tpl');
 	
 	window.HeaderView = Backbone.View.extend({
 		
@@ -13,12 +11,13 @@ define(function(require, exports, module) {
 	    	
 	    render: function () {
    
-			app.tpl.headerview = Handlebars.compile( headerviewTemplate );
+			app.tplpre.headerview = Handlebars.compile( app.tpl.headerview );
 			
-			$(this.el).html(app.tpl.headerview);
+			$(this.el).html(app.tplpre.headerview);
 			
 	        return this;
 	    }
+
 	});
 
 

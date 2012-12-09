@@ -2,69 +2,46 @@ define(function(require, exports, module) {
 
 
 	require('./model/usersession');
+	require('./model/userregmodel');
 
-	require('./model/usermodel');
 	require('./collection/usercollection');
 	
 	require('./views/website/headerview');
 
+	require('./views/website/indexview');
+
 	require('./views/website/user/regview');
 	require('./views/website/user/loginview');
 	require('./views/website/user/usercenterview');
-	
-		
-			
 			
 /*
 	require('./views/mobile/user/userloginview');
 	require('./views/mobile/header/headerview');
-*/
-
-	window.app = {
-		model:{},
-		modelbinder:{},
-		view:{},
-		tpl:{},
-		collection:{},
-		htmlbody:{},
-		temp: {}
-	};
-
-	
+*/	
 	
 	
 	var AppRouter = Backbone.Router.extend({
 	    routes: {  
-	    	"" : "indexweb",  		
+	    	"" : "indexweb",  
+	    	"index" : "indexweb",		
     		"login" : "loginUser",  
 	        "reg" : "regUser",
-	        
-		 
-	    },
+	        "loginout" : "loginOut",
+	        "usercenter" : "userCenter"
+	    }, 
 	
 	    initialize: function () {
 	    	app.view.header = new HeaderView({ el: $("#headerbox")} );
-
+	    	
 	    	app.model.session = new UserSession();
-console.log (app.model.session.login_state );
-	    	if(app.model.session.login_state){
-	    		//进入登陆后页面
-	    		app.model.usernew = new UserModel();
-				app.view.mainbox = new UserCenterView({model: app.model.usernew, el: $("#mainbox")} );
-
-	    	}else{
-
-	    	}
-	  
-			
-
+	    	app.model.session.authenticate();
+		
 	    },
 	    
 		
 /*
 		adminindex: function(pageno) {
 
-						
 	        app.collection.userList1 = new UserCollection();
 	        app.collection.userList1.fetch({success: function(){
 	        	app.view.userlist = new UserListView({ model: app.collection.userList1 , el: $("#userlist") });
@@ -74,7 +51,7 @@ console.log (app.model.session.login_state );
 	    },
 	
 		adminUserDetail: function(id) {					
-	        app.model.user1 = new UserModel({id: id});	
+	        app.model.user1 = new UserRegModel({id: id});	
 			
 	        app.model.user1.fetch({success: function(){	        	
 	        	app.view.userview1 = new UserView({ model: app.model.user1 , el: $("#userlist") });
@@ -83,23 +60,49 @@ console.log (app.model.session.login_state );
 	    },
 	    
 	    adminUserAdd: function() {	    
-	        app.model.usernew = new UserModel();
+	        app.model.usernew = new UserRegModel();
 	        app.view.useraddnew = new UserView({model: app.model.usernew, el: $("#userlist") });
 		},
 	    
 */
-	    
+	
+	    indexweb: function() {
+	    	app.view.mainbox = new IndexView({ el: $("#mainbox")} );
+	    	
+
+		},    
    
 	    loginUser: function() {
-	        app.model.usernew = new UserModel();
-			app.view.mainbox = new LoginView({model: app.model.usernew, el: $("#mainbox")} );
+	        
+			if(app.model.session.get("login_state")){
+				app.view.mainbox = new UserCenterView({model: app.model.session, el: $("#mainbox")} );
+			}else{
+				app.view.mainbox = new LoginView({model: app.model.session, el: $("#mainbox")} );
+			}
+
 		},
 		
     	regUser: function() {
-	
-	        app.model.usernew = new UserModel();
-			app.view.mainbox = new RegView({model: app.model.usernew, el: $("#mainbox")} );
+			if(app.model.session.get("login_state")){
+				app.view.mainbox = new UserCenterView({model: app.model.session, el: $("#mainbox")} );
+			}else{
+				app.model.usernew = new UserRegModel();
+				app.view.mainbox = new RegView({model: app.model.usernew, el: $("#mainbox")} );
+			}	
+		},
 
+		loginOut: function(){
+			app.model.session.delsession();
+			app.view.mainbox = new IndexView({ el: $("#mainbox")} );
+		},
+
+		userCenter: function(){
+			if(app.model.session.get("login_state")){
+				app.view.mainbox = new UserCenterView({model: app.model.session, el: $("#mainbox")} );
+			}else{
+				app.view.mainbox = new UserCenterView({model: app.model.session, el: $("#mainbox")} );
+			}				
+			
 		}
 	
 	});	

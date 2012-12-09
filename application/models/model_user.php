@@ -20,6 +20,7 @@ class Model_User extends CI_Model {
 	 
 	function __construct(){
 		parent::__construct();
+		date_default_timezone_set('Asia/Shanghai');
 
 	}
 	 
@@ -66,6 +67,13 @@ class Model_User extends CI_Model {
 				
 	}
 	
+
+
+
+
+
+
+
 	
 	/**********    RESTFul API     **************/
 	
@@ -103,6 +111,8 @@ class Model_User extends CI_Model {
 	
 /* post 用于添加 */
 	public function postUser($data, $table = 'ci_user') {	
+		$data['password'] = sha1($data['password']);
+
 		return $this->db->insert($table, $data);				
 	}
 	
@@ -110,7 +120,7 @@ class Model_User extends CI_Model {
 	
 /*  put 用于修改 */
 	public function putUser($userid, $data, $table = 'ci_user') {	
-	
+		$data['password'] = sha1($data['password']);
 		$this->db->where('id', $userid);			
 		return $this->db->update($table, $data); 		
 	}
@@ -124,8 +134,102 @@ class Model_User extends CI_Model {
 		$this->db->where('id', $userid);			
 		return $this->db->update($table, $data); 			
 	}
-	
-	
+
+/* 检查用户是否登陆 */	
+	public function checkUserLogin($username, $password, $data, $table = 'ci_user'){		
+		
+		$this->db->where('username', $username);
+		$this->db->where('password', sha1($password));
+		$this->db->where('delstatus', 0);
+		$this->db->limit(1);
+		$query = $this->db->get($table);
+		
+/* 		echo $query->num_rows(); */
+		if($query->num_rows() > 0 ){
+			/* 用户登陆成功记录session */	
+			$sessiondata['userid'] = $query->row()->id;		
+			$this->session->set_userdata($sessiondata);
+
+
+			/* 用户登陆成功储存access_token */	
+
+			$this->db->where('userid', $query->row()->id);
+			$this->db->limit(1);
+			$table_accesstoken = 'ci_useraccesstoken';
+			$query_accesstoken = $this->db->get($table_accesstoken);
+
+			if($query_accesstoken->num_rows() > 0){
+				// 用户如果有accesstoken 就更新
+
+				$data2['accesstoken'] = $this->session->userdata('session_id');
+				
+				$data2['ip_address'] = $this->session->userdata('ip_address');
+				$data2['user_agent'] = $this->session->userdata('user_agent');
+				$data2['last_activity'] = $this->session->userdata('last_activity');
+				$data2['lastdate'] = date('Y-m-d H:i:s');
+
+				$this->db->where('userid', $query->row()->id);			
+				$this->db->update($table_accesstoken, $data2); 	
+
+			}else{
+				//用户没有accesstoken就创建新的
+
+				$data2['accesstoken'] = $this->session->userdata('session_id');
+				$data2['userid'] = $query->row()->id;
+				$data2['ip_address'] = $this->session->userdata('ip_address');
+				$data2['user_agent'] = $this->session->userdata('user_agent');
+				$data2['last_activity'] = $this->session->userdata('last_activity');
+				$data2['lastdate'] = date('Y-m-d H:i:s');
+				$this->db->insert($table_accesstoken, $data2);
+			}
+
+			$this->db->where('userid', $query->row()->id);
+			$this->db->where('delstatus', 0);
+			$this->db->join($table_accesstoken, $table.'.id = '.$table_accesstoken.'.userid');
+			$this->db->limit(1);
+			$query3= $this->db->get($table);
+
+			return $query3->row();
+		}
+		return FALSE;
+	}	
+
+/* 检查用户是否登陆 */	
+	public function checkUserToken($userid, $accesstoken, $data, $table = 'ci_useraccesstoken'){		
+		
+		$this->db->where('userid', $userid);
+		$this->db->where('accesstoken', $accesstoken);
+		
+		$this->db->limit(1);
+		$query = $this->db->get($table);
+		
+/* 		echo $query->num_rows(); */
+		if($query->num_rows() > 0 ){
+
+			// 用户如果有accesstoken 就更新
+
+			$data2['accesstoken'] = $this->session->userdata('session_id');
+			$data2['ip_address'] = $this->session->userdata('ip_address');
+			$data2['user_agent'] = $this->session->userdata('user_agent');
+			$data2['last_activity'] = $this->session->userdata('last_activity');
+
+			$data2['lastdate'] = date('Y-m-d H:i:s');
+
+			$this->db->where('userid', $query->row()->userid);			
+			$this->db->update($table, $data2); 	
+
+			$table_user = 'ci_user';
+			
+			$this->db->join($table_user, $table.'.userid = '.$table_user.'.id');
+			$this->db->limit(1);
+			$query3= $this->db->get($table);
+			
+			return $query3->row();
+		}
+		return FALSE;
+	}	
+
+
 	
 }
 

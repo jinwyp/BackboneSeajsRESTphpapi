@@ -31,6 +31,16 @@ define(function(require) {
 	require('tbs-typeahead')($);
 */
 
+	window.app = {
+		model:{},
+		modelbinder:{},
+		view:{},
+		tpl:{},
+		tplpre:{},
+		collection:{},
+		htmlbody:{},
+		temp: {}
+	};
 	
 	$(function() {				
 		var BBRouter = require('./myapp/webrouter');

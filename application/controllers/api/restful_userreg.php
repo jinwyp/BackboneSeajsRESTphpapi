@@ -16,7 +16,7 @@
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
 require APPPATH.'/libraries/REST_Controller.php';
 
-class Restful_User extends REST_Controller {
+class Restful_UserReg extends REST_Controller {
 	function user_get()
     {
         if(!$this->get('id'))
@@ -50,7 +50,7 @@ $users = array(
         if(!$this->post('id')){        	
         	$data['username'] = $this->post('username');		
 			$data['email'] = $this->post('email');
-			$data['password'] = sha1($this->post('password'));
+			$data['password'] = $this->post('password');
 			$data['mobile'] = $this->post('mobile');
 			$data['firstname'] = $this->post('firstname');
 			$data['lastname'] = $this->post('lastname');
@@ -75,7 +75,7 @@ $users = array(
         	
 			$data['username'] = $this->put('username');		
 			$data['email'] = $this->put('email');
-			$data['password'] = sha1($this->put('password'));
+			$data['password'] = $this->put('password');
 			$data['mobile'] = $this->put('mobile');
 			$data['firstname'] = $this->put('firstname');
 			$data['lastname'] = $this->put('lastname');

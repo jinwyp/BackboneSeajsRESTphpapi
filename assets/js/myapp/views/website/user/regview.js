@@ -1,7 +1,6 @@
 define(function(require, exports, module) {
 
-
-	var regviewTemplate = require('tplurl-website/user/reg.tpl');
+	app.tpl.regview = require('tplurl-website/user/reg.tpl');
 	
 	
 	window.RegView = Backbone.View.extend({
@@ -13,8 +12,8 @@ define(function(require, exports, module) {
 	    },
 	
 	    render: function () {
-		   	app.tpl.reg = Handlebars.compile( regviewTemplate );
-			$(this.el).html(app.tpl.reg);
+		   	app.tplpre.regview = Handlebars.compile( app.tpl.regview );
+			$(this.el).html(app.tplpre.regview);
 			
 			Backbone.Validation.bind(this, {
 				valid: function(view, attr, selector) {
@@ -78,7 +77,7 @@ define(function(require, exports, module) {
 	    
 	    events: {
 	        "blur input" : "changeModel",
-			'click #regbutton': 'submit'
+			"click #regbutton": "regsubmit"
 	    },
 	    
 	    changeModel: function (event) {
@@ -105,7 +104,7 @@ define(function(require, exports, module) {
 		},
 		
 */
-		submit: function(e){
+		regsubmit: function(e){
 			e.preventDefault();
 			this.$('.alert').hide();
 					

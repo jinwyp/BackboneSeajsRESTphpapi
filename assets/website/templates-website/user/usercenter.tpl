@@ -9,7 +9,7 @@
 				    <div class="control-group">
 				        <label for="username" class="control-label">用户中心：</label>
 					        <div class="controls">
-					            <input type="text" name="username" id="username" data-error-style="inline" placeholder="请输入用户名">
+					            
 					            
 					        </div>
 					</div>
@@ -17,7 +17,7 @@
 					<div class="control-group">
 						<label for="email" class="control-label">控制面板：</label>
 					        <div class="controls">
-						        <input type="text"  name="email" id="email" data-error-style="inline" placeholder="请输入邮箱">
+						        
 					        </div>
 					</div>
 
