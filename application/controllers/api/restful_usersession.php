@@ -25,7 +25,7 @@ class Restful_UserSession extends REST_Controller {
         $data['userid'] = $this->post('user_id');
         $data['username'] = $this->post('user_name');               
         $data['useremail'] = $this->post('user_email');
-        $data['password'] = $this->post('user_password');
+        $data['lastdate'] = $this->post('user_lastdate');
 
         if($this->post('user_name')){        	
 
@@ -38,7 +38,7 @@ class Restful_UserSession extends REST_Controller {
                 $this->response($message, 200); // 200 being the HTTP response code 
 	        }else  
 	        {  
-	            $message = array( 'status' => 1, 'access_token' => $result->accesstoken, 'user_id' => $result->id, 'user_name' => $result->username, 'user_email' => $result->email,  'message' => '您登陆成功!');
+	            $message = array( 'status' => 1, 'access_token' => $result->accesstoken, 'user_id' => $result->id, 'user_name' => $result->username, 'user_lastdate' => $result->lastdate,  'message' => '您登陆成功!');
         		$this->response($message, 200); // 200 being the HTTP response code
 	        }
         }
@@ -53,7 +53,7 @@ class Restful_UserSession extends REST_Controller {
                 $this->response($message, 200); // 200 being the HTTP response code 
             }else  
             {  
-                $message = array( 'status' => 1, 'access_token' => $result->accesstoken, 'user_id' => $result->id, 'user_name' => $result->username, 'user_email' => $result->email,  'message' => '授权成功,并更新授权!');
+                $message = array( 'status' => 1, 'access_token' => $result->accesstoken, 'user_id' => $result->id, 'user_name' => $result->username, 'user_lastdate' => $result->lastdate,  'message' => '授权成功,并更新授权!');
                 $this->response($message, 200); // 200 being the HTTP response code
             }          
         }

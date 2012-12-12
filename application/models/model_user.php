@@ -135,66 +135,76 @@ class Model_User extends CI_Model {
 		return $this->db->update($table, $data); 			
 	}
 
+
 /* 检查用户是否登陆 */	
 	public function checkUserLogin($username, $password, $data, $table = 'ci_user'){		
 		
 		$this->db->where('username', $username);
-		$this->db->where('password', sha1($password));
+		// $this->db->where('password', sha1($password));
 		$this->db->where('delstatus', 0);
 		$this->db->limit(1);
 		$query = $this->db->get($table);
 		
 /* 		echo $query->num_rows(); */
 		if($query->num_rows() > 0 ){
-			/* 用户登陆成功记录session */	
-			$sessiondata['userid'] = $query->row()->id;		
-			$this->session->set_userdata($sessiondata);
 
+			if($query->row()->password === sha1($password)){
 
-			/* 用户登陆成功储存access_token */	
+				/* 用户登陆成功记录session */	
+				$sessiondata['userid'] = $query->row()->id;
+				$sessiondata['lastguid'] = $this->GUID();		
+				$this->session->set_userdata($sessiondata);
 
-			$this->db->where('userid', $query->row()->id);
-			$this->db->limit(1);
-			$table_accesstoken = 'ci_useraccesstoken';
-			$query_accesstoken = $this->db->get($table_accesstoken);
+				/* 用户登陆成功储存access_token */	
 
-			if($query_accesstoken->num_rows() > 0){
-				// 用户如果有accesstoken 就更新
+				$this->db->where('userid', $query->row()->id);
+				$this->db->limit(1);
+				$table_accesstoken = 'ci_useraccesstoken';
+				$query_accesstoken = $this->db->get($table_accesstoken);
 
-				$data2['accesstoken'] = $this->session->userdata('session_id');
-				
-				$data2['ip_address'] = $this->session->userdata('ip_address');
-				$data2['user_agent'] = $this->session->userdata('user_agent');
-				$data2['last_activity'] = $this->session->userdata('last_activity');
-				$data2['lastdate'] = date('Y-m-d H:i:s');
+				if($query_accesstoken->num_rows() > 0){
+					// 用户如果有accesstoken 就更新
 
-				$this->db->where('userid', $query->row()->id);			
-				$this->db->update($table_accesstoken, $data2); 	
+					$data2['accesstoken'] = $this->session->userdata('session_id');
+					$data2['ip_address'] = $this->session->userdata('ip_address');
+					$data2['user_agent'] = $this->session->userdata('user_agent');
+					$data2['last_activity'] = $this->session->userdata('last_activity');
+					$data2['lastdate'] = date('Y-m-d H:i:s');
 
+					$this->db->where('userid', $query->row()->id);			
+					$this->db->update($table_accesstoken, $data2); 	
+
+				}else{
+					//用户没有accesstoken就创建新的
+
+					$data2['accesstoken'] = $this->session->userdata('session_id');
+					$data2['userid'] = $query->row()->id;
+					$data2['ip_address'] = $this->session->userdata('ip_address');
+					$data2['user_agent'] = $this->session->userdata('user_agent');
+					$data2['last_activity'] = $this->session->userdata('last_activity');
+					$data2['lastdate'] = date('Y-m-d H:i:s');
+					$data2['lastguid'] = $this->GUID();		
+					$this->db->insert($table_accesstoken, $data2);
+				}
+
+				$this->db->where('userid', $query->row()->id);
+				$this->db->where('delstatus', 0);
+				$this->db->join($table_accesstoken, $table.'.id = '.$table_accesstoken.'.userid');
+				$this->db->limit(1);
+				$query3= $this->db->get($table);
+
+				return $query3->row();
 			}else{
-				//用户没有accesstoken就创建新的
-
-				$data2['accesstoken'] = $this->session->userdata('session_id');
-				$data2['userid'] = $query->row()->id;
-				$data2['ip_address'] = $this->session->userdata('ip_address');
-				$data2['user_agent'] = $this->session->userdata('user_agent');
-				$data2['last_activity'] = $this->session->userdata('last_activity');
-				$data2['lastdate'] = date('Y-m-d H:i:s');
-				$this->db->insert($table_accesstoken, $data2);
+				//密码不正确
 			}
-
-			$this->db->where('userid', $query->row()->id);
-			$this->db->where('delstatus', 0);
-			$this->db->join($table_accesstoken, $table.'.id = '.$table_accesstoken.'.userid');
-			$this->db->limit(1);
-			$query3= $this->db->get($table);
-
-			return $query3->row();
+		}else{
+			//没有该用户
 		}
 		return FALSE;
 	}	
 
-/* 检查用户是否登陆 */	
+
+/* 检查用户是否Token */	
 	public function checkUserToken($userid, $accesstoken, $data, $table = 'ci_useraccesstoken'){		
 		
 		$this->db->where('userid', $userid);
@@ -205,31 +215,70 @@ class Model_User extends CI_Model {
 		
 /* 		echo $query->num_rows(); */
 		if($query->num_rows() > 0 ){
+			if($query->row()->lastdate === $data['lastdate']){
+				// 用户如果有accesstoken 就更新
 
-			// 用户如果有accesstoken 就更新
+				$data2['accesstoken'] = $this->session->userdata('session_id');
+				$data2['ip_address'] = $this->session->userdata('ip_address');
+				$data2['user_agent'] = $this->session->userdata('user_agent');
+				$data2['last_activity'] = $this->session->userdata('last_activity');
+				$data2['lastdate'] = date('Y-m-d H:i:s');
 
-			$data2['accesstoken'] = $this->session->userdata('session_id');
-			$data2['ip_address'] = $this->session->userdata('ip_address');
-			$data2['user_agent'] = $this->session->userdata('user_agent');
-			$data2['last_activity'] = $this->session->userdata('last_activity');
+				$this->db->where('userid', $query->row()->userid);			
+				$this->db->update($table, $data2); 	
 
-			$data2['lastdate'] = date('Y-m-d H:i:s');
+				$table_user = 'ci_user';
+				
+				$this->db->join($table_user, $table.'.userid = '.$table_user.'.id');
+				$this->db->limit(1);
+				$query3= $this->db->get($table);
+				
+				return $query3->row();
+			}else{
+				//上次登陆时间不对
+			}
 
-			$this->db->where('userid', $query->row()->userid);			
-			$this->db->update($table, $data2); 	
-
-			$table_user = 'ci_user';
-			
-			$this->db->join($table_user, $table.'.userid = '.$table_user.'.id');
-			$this->db->limit(1);
-			$query3= $this->db->get($table);
-			
-			return $query3->row();
 		}
 		return FALSE;
 	}	
 
+	public function _get_client_ip() {
+        $clientip = '';
+        if(getenv('HTTP_CLIENT_IP') && strcasecmp(getenv('HTTP_CLIENT_IP'), 'unknown')) {
+                $clientip = getenv('HTTP_CLIENT_IP');
+        } elseif(getenv('HTTP_X_FORWARDED_FOR') && strcasecmp(getenv('HTTP_X_FORWARDED_FOR'), 'unknown')) {
+                $clientip = getenv('HTTP_X_FORWARDED_FOR');
+        } elseif(getenv('REMOTE_ADDR') && strcasecmp(getenv('REMOTE_ADDR'), 'unknown')) {
+                $clientip = getenv('REMOTE_ADDR');
+        } elseif(isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], 'unknown')) {
+                $clientip = $_SERVER['REMOTE_ADDR'];
+        }
 
+        preg_match("/[\d\.]{7,15}/", $clientip, $clientipmatches);
+        $clientip = $clientipmatches[0] ? $clientipmatches[0] : 'unknown';
+        return $clientip;
+    }
+
+
+	public function GUID(){
+
+	    if (function_exists('com_create_guid') === true)
+	    {
+	        return trim(com_create_guid(), '{}');
+	    }else{
+        mt_srand((double)microtime()*10000);//optional for php 4.2.0 and up.
+        $charid = strtoupper(md5(uniqid(rand(), true)));
+        $hyphen = chr(45);// "-"
+        $uuid = chr(123)// "{"
+                .substr($charid, 0, 8).$hyphen
+                .substr($charid, 8, 4).$hyphen
+                .substr($charid,12, 4).$hyphen
+                .substr($charid,16, 4).$hyphen
+                .substr($charid,20,12)
+                .chr(125);// "}"
+        return $uuid;
+	    }
+    }
 	
 }
 

@@ -18,7 +18,8 @@ define(function(require, exports, module) {
 	require('./views/mobile/user/userloginview');
 	require('./views/mobile/header/headerview');
 */	
-	
+	app.model.session = new UserSession();
+	app.model.session.authenticate();
 	
 	var AppRouter = Backbone.Router.extend({
 	    routes: {  
@@ -32,9 +33,6 @@ define(function(require, exports, module) {
 	
 	    initialize: function () {
 	    	app.view.header = new HeaderView({ el: $("#headerbox")} );
-	    	
-	    	app.model.session = new UserSession();
-	    	app.model.session.authenticate();
 		
 	    },
 	    
@@ -79,7 +77,6 @@ define(function(require, exports, module) {
 			}else{
 				app.view.mainbox = new LoginView({model: app.model.session, el: $("#mainbox")} );
 			}
-
 		},
 		
     	regUser: function() {
@@ -100,7 +97,7 @@ define(function(require, exports, module) {
 			if(app.model.session.get("login_state")){
 				app.view.mainbox = new UserCenterView({model: app.model.session, el: $("#mainbox")} );
 			}else{
-				app.view.mainbox = new UserCenterView({model: app.model.session, el: $("#mainbox")} );
+				app.view.mainbox = new LoginView({model: app.model.session, el: $("#mainbox")} );
 			}				
 			
 		}

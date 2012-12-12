@@ -39,11 +39,11 @@ define(function(require, exports, module) {
 
 	    savesession: function(auth_hash){
 	    	
-	    	$.cookie('access_token', auth_hash.access_token, { expires: 7 });
-	    	$.cookie('user_id', auth_hash.user_id, { expires: 7 });
-	    	$.cookie('user_email', auth_hash.user_email, { expires: 7 });
+	    	$.cookie('access_token', auth_hash.access_token, { expires: 3 });
+	    	$.cookie('user_id', auth_hash.user_id, { expires: 3 });
+	    	// $.cookie('user_email', auth_hash.user_email, { expires: 7 });
 	    	// $.cookie('user_password', auth_hash.user_password, { expires: 7 });
-	    	
+	    	$.cookie('user_lastdate', auth_hash.user_lastdate, { expires: 3 });
 	    	return this;
 	    },
 
@@ -51,7 +51,8 @@ define(function(require, exports, module) {
 	    	
 	    	$.removeCookie('access_token');
 	    	$.removeCookie('user_id');
-	    	$.removeCookie('user_email');
+	    	// $.removeCookie('user_email');
+	    	$.removeCookie('user_lastdate');
 	    	// $.removeCookie('user_password');
 	    	app.model.session.set({login_state: 0} );
 
@@ -68,7 +69,8 @@ define(function(require, exports, module) {
 		        	access_token: $.cookie('access_token'),
 		        	user_id: $.cookie('user_id'),
 		        	user_email: $.cookie('user_email'),
-		        	// user_password: $.cookie('access_token')
+		        	
+		        	user_lastdate: $.cookie('user_lastdate'),
 		        });
 	    	}
 
