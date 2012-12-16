@@ -6,9 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	
+
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<meta name="<?php echo $csrfname ?>" content="<?php echo $csrfvalue ?>" />
 
 	<link href="assets/website/styles/bootstrap.css" rel="stylesheet">
 	<link href="assets/website/styles/bootstrap-responsive.css" rel="stylesheet">
@@ -23,25 +25,11 @@
 </head>
 <body>
 
-	<div class="navbar navbar-inverse navbar-fixed-top " id="headerbox">
-
-	</div>
-	
-
-	<div class="container-fluid" id="mainbox">
-
-	</div><!--/.fluid-container-->
-	
-	<div class="row-fluid" id="footerbox">
-		<footer>
-			<p>&copy; Company 2012</p>
-		</footer>
-	</div>
 	
 
 	<script src="assets/js/sea/sea.js"></script>
 	<script type="text/javascript">
-	seajs.use('/assets/js/webconfig');	
+		seajs.use('/assets/js/webconfig');	
 	</script>
 	
 <!-- 				
@@ -56,5 +44,5 @@
 
 
 
-	</body>
-	</html>
+</body>
+</html>

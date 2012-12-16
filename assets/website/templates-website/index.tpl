@@ -1,14 +1,14 @@
-<div class="row-fluid">
-	<div class="span8 offset2 regtitle">
+	<div class="navbar navbar-inverse navbar-fixed-top " id="headerbox">
 
-		<h2>欢迎使用中国最好用的个税计算器</h2>
-		<p>如果您还不知道中国的个税有多重，快试试吧。你本来可以拿双倍工资，但一半都被国家拿走了</p>
-		<hr>
+	</div>
+	
 
-		<div class="row-fluid">
-			<div class="span10 offset1">     
-				首页 首页
-			</div>   
-		</div><!--/row-->
-	</div><!--/span8-->	
-</div><!--/row-->
+	<div class="container-fluid" id="mainbox">
+
+	</div><!--/.fluid-container-->
+	
+	<div class="row-fluid" id="footerbox">
+		<footer>
+			<p>&copy; Company 2012</p>
+		</footer>
+	</div>

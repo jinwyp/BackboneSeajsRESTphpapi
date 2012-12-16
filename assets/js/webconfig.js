@@ -12,7 +12,8 @@ seajs.config({
 	    
 	    'backbonemodelbinder': 'modules/backbonemodelbinder/backbone-modelbinder.js',
 	    'backbonevalidation': 'modules/backbonevalidation/backbone-validation-amd.js',	    
-	    
+	    'backboneroutefilter': 'modules/backboneroutefilter/backbone-routefilter.js',	    
+
 	    'handlebars': 'modules/handlebars/1.0.0/handlebars.js',
 	    'coffee': 'modules/coffee/1.3.3/coffee-script.js',
 	    'less': 'modules/less/1.3.0/less.js',
@@ -41,7 +42,7 @@ seajs.config({
 	},
 	
 	preload: ['plugin-json', 'plugin-text', 'plugin-coffee', 'plugin-less'],
-	debug: 0
+	debug: 2
 	
 });
 

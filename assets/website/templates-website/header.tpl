@@ -19,13 +19,23 @@
 				</div>
 
 				<div class="btn-group pull-right loginhidden" id="logined">
-					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-						<i class="icon-user"></i>用户名 
+					<a class="btn dropdown-toggle" data-toggle="dropdown" >
+						<i class="icon-user"></i> {{user_name}}
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="#usercenter">个人信息</a>
+							<a id="usercenterbutton">个人信息</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a id="persontaxbutton">常规个税计算</a>
+						</li>
+						<li>
+							<a id="taxfeebutton">地区税率设置</a>
+						</li>
+						<li>
+							<a id="employeebutton">员工设置</a>
 						</li>
 						<li class="divider"></li>
 						<li>

@@ -1,14 +1,16 @@
 define(function(require, exports, module) {
 
 
-	require('./model/usersession');
+	
 	require('./model/userregmodel');
 
 	require('./collection/usercollection');
 	
-	require('./views/website/headerview');
+	
 
 	require('./views/website/indexview');
+	require('./views/website/mainboxview');
+	require('./views/website/headerview');
 
 	require('./views/website/user/regview');
 	require('./views/website/user/loginview');
@@ -18,24 +20,43 @@ define(function(require, exports, module) {
 	require('./views/mobile/user/userloginview');
 	require('./views/mobile/header/headerview');
 */	
-	app.model.session = new UserSession();
-	app.model.session.authenticate();
 	
 	var AppRouter = Backbone.Router.extend({
 	    routes: {  
-	    	"" : "indexweb",  
-	    	"index" : "indexweb",		
+	    	"" : "homepage",  
+	    	"index" : "homepage",		
     		"login" : "loginUser",  
 	        "reg" : "regUser",
 	        "loginout" : "loginOut",
-	        "usercenter" : "userCenter"
+	        "*path" : "homepage"		
+	        
 	    }, 
 	
+		before: function(route){
+			
+			$("#mainbox").hide();
+			// $("#mainbox").delay(2000);
+			$("#mainbox").fadeIn();
+			
+			console.log ("before", app.model.session.get("login_state") );
+
+		},
+
+		after: function(){
+			// $("#mainbox").slideUp();
+		},
+
 	    initialize: function () {
-	    	app.view.header = new HeaderView({ el: $("#headerbox")} );
-		
+/*	    	this.on('all', function(routeEvent) {
+	            // If you had clicked #foo, routeEvent would contain
+	            // `route:bar`. You can trigger your CSS changes here.
+	            
+	        });*/
+			app.view.indexpage = new IndexView({ el: $("body")} );
+	    	app.view.header = new HeaderView({ model: app.model.session, el: $("#headerbox")} );
 	    },
-	    
+
+
 		
 /*
 		adminindex: function(pageno) {
@@ -64,9 +85,8 @@ define(function(require, exports, module) {
 	    
 */
 	
-	    indexweb: function() {
-	    	app.view.mainbox = new IndexView({ el: $("#mainbox")} );
-	    	
+	    homepage: function(path) {
+	    	app.view.mainbox = new MainboxView({ el: $("#mainbox")} );
 
 		},    
    
@@ -90,16 +110,7 @@ define(function(require, exports, module) {
 
 		loginOut: function(){
 			app.model.session.delsession();
-			app.view.mainbox = new IndexView({ el: $("#mainbox")} );
-		},
-
-		userCenter: function(){
-			if(app.model.session.get("login_state")){
-				app.view.mainbox = new UserCenterView({model: app.model.session, el: $("#mainbox")} );
-			}else{
-				app.view.mainbox = new LoginView({model: app.model.session, el: $("#mainbox")} );
-			}				
-			
+			app.view.mainbox = new MainboxView({ el: $("#mainbox")} );
 		}
 	
 	});	

@@ -12,8 +12,11 @@ define(function(require) {
 
 	Backbone.Validation = require('backbonevalidation');
 	Backbone.ModelBinder = require('backbonemodelbinder');
+	require('backboneroutefilter');
 
-	
+	require('./myapp/model/usersession');
+
+
 	require('bootstrap')($);
 /*
 	require('tbs-affix')($);	
@@ -42,21 +45,24 @@ define(function(require) {
 		temp: {}
 	};
 
-	Backbone.old_sync = Backbone.sync
-	Backbone.sync = function(method, model, options) {
-	    var new_options =  _.extend({
-	        beforeSend: function(xhr) {
-	            var csrftoken = $('meta[name="csrf-token"]').attr('content');
-	            if (csrftoken) {
-	            	xhr.setRequestHeader('X-CSRF-Token', token);
-	            }
-	        }
-	    }, options)
-	    Backbone.old_sync(method, model, new_options);
-	};
+	// Backbone.old_sync = Backbone.sync
+	// Backbone.sync = function(method, model, options) {
+	//     var new_options =  _.extend({
+	//         beforeSend: function(xhr) {
+	//             var csrftoken = $('meta[name="csrf-token"]').attr('content');
+	//             if (csrftoken) {
+	//             	xhr.setRequestHeader('X-CSRF-Token', token);
+	//             }
+	//         }
+	//     }, options)
+	//     Backbone.old_sync(method, model, new_options);
+	// };
 	
 	$(function() {				
-		var BBRouter = require('./myapp/webrouter');
+		app.model.session = new UserSession();
+		app.model.session.authenticate();
+
+		var BBRouter = require('./myapp/webrouter');	
         BBRouter.initialize();
 		
 	});

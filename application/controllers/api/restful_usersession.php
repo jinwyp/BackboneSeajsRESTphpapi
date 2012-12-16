@@ -26,6 +26,7 @@ class Restful_UserSession extends REST_Controller {
         $data['username'] = $this->post('user_name');               
         $data['useremail'] = $this->post('user_email');
         $data['lastdate'] = $this->post('user_lastdate');
+        $data['password'] = $this->post('user_password');
 
         if($this->post('user_name')){        	
 

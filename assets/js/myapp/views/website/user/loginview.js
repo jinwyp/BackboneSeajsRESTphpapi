@@ -76,8 +76,9 @@ define(function(require, exports, module) {
 		loginsubmit: function(e){
 			e.preventDefault();
 			this.$('.alert').hide();
+			this.model.loginaction(this.model);
 					
-			if(this.model.isValid(true)){
+/*			if(this.model.isValid(true)){
 
 		        this.model.save(null, {
 		            success: function (model, response) {
@@ -103,10 +104,9 @@ define(function(require, exports, module) {
 						
 		            }
 		        });
-			}
-			else {
+			}else{
 				this.$('.alert-error').fadeIn();
-			}
+			}*/
 			
 
 		}
