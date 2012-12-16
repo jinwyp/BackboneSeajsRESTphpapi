@@ -1,17 +1,21 @@
-# Project for mordern RestFull Single Web App on Website and Mobile
-# 该项目是针对目前流行的单页面前端程序和后端ResrFull接口模式的尝试, 可以作为同时快速开发网站和手机项目的框架
+# Project for mordern RESTful Single Web App on Website and Mobile
+# 该项目是针对目前流行的单页面前端程序和后端RESTful接口模式的尝试, 可以作为同时快速开发网站和手机项目的框架
+# [项目地址](http://www.fbair.net/ci/) http://www.fbair.net/ci/
 
+## Include Framework  项目所用的框架和库 
+(做个 hello world 要用这么框架, 框架时代真的来临了?  ... Meteor 秒杀之)
 
-## Include Framework  项目所用的框架和库 (做个hello world 要用到这么框架, 框架时代真的来临了? )
+### BackEnd 后端框架
+1. PHP Framework CodeIgniter [官方主页] (http://codeigniter.com/)  [github地址](https://github.com/CodeIgniter) CodeIgniter 是目前PHP最流行的开源快速开发框架之一, MVC结构, 但在我们项目中只提供RESTful数据接口服务. (CodeIgniter主页的那个动态流线上升效果太赞了, SVG的背景图把MacbookAir的风扇弄的嗷嗷叫)
 
-1. PHP Framework CodeIgniter [官方主页] (http://codeigniter.com/)  [github地址]{https://github.com/CodeIgniter}
+2. CodeIgniter restserver library, CodeIgniter的一个提供RESTful库, [项目地址] (https://github.com/philsturgeon/codeigniter-restserver)  该库很好用,提供了GET/POST/PUT/DELETE 的四种标准方法, 在本项目的 application/controllers/api/ 路径下
 
-2. CodeIgniter restserver library  CodeIgniter 的 Restfull 库 https://github.com/philsturgeon/codeigniter-restserver  在本项目的application/controllers/api/
+### FrondEnd 前端框架
+3. Seajs a javascript Module Loader, similar with Requirejs. Seajs是前端用来加载和调度js文件的框架, 符合CMD规范. 作者来至淘宝的lifesinger [官方主页](http://seajs.org/docs/) [github项目地址](https://github.com/seajs/seajs).
+在本项目中放到了 assets/js/sea 路径下. 注意所有的静态文件,例如 图片,JS,HTML模板都在assets路径下, 
+> 注意:常用的例如jQuery,backbone 等都需要修改才能使用,因为要符合CMD规范. lifesinger是个大好人已经帮我们修改好了 都放到了assets/js/sea/modules下  而且可以到 https://github.com/seajs/modules 去获取最新的版本.
 
-3. Seajs a javascript Module Loader like requirejs. Seajs是一个用来加载和调度js文件的工具, 来至淘宝的lifesinger作者 https://github.com/seajs/seajs  http://seajs.org/docs/
-在本项目中放到了 assets/m/js/lib/sea 下. 注意所有的常用的例如jQuery,backbone 等都需要修改才能使用,因为要符合CMD规范. lifesinger是个大好人已经帮我修改好了 都放到了assets/m/js/lib/seajs-modules下 而且可以到https://github.com/seajs/modules 去获取
-
-4. Backbone 一个目前最流行的JS前端MVC框架. 带有Model, Collection, View, Router.  官方网站 http://backbonejs.org/  其中Router功能即路由功能, 就是控制url访问的页面.实际上Backbone的程序是一个单页面程序Web App. 已经没有了页面的概念.
+4. Backbone 目前最流行的JS前端MVC框架,结构基本为 Model, Collection, View, Event, Router.  [官方网站] (http://backbonejs.org/)  其中Router功能即路由功能, 就是控制url访问的页面.实际上Backbone的程序是一个单页面程序Web App. 已经没有了传统页面的概念, 前端JS负责页面切换,而不再由后端的Controller负责页面调度.
 
 5. jQuery Mobile 基于手机开发Web App的最流行的框架,丰富的UI组件 官方网站 http://jquerymobile.com/
 
