@@ -1,9 +1,10 @@
-﻿# Project for mordern RestFull Single Web App on Website and Mobile
+# Project for mordern RestFull Single Web App on Website and Mobile
+# 该项目是针对目前流行的单页面前端程序和后端ResrFull接口模式的尝试, 可以作为同时快速开发网站和手机项目的框架
 
 
-## Include Framework 包含的库
+## Include Framework  项目所用的框架和库 (做个hello world 要用到这么框架, 框架时代真的来临了? )
 
-1. PHP Framework CodeIgniter http://codeigniter.com/  https://github.com/CodeIgniter
+1. PHP Framework CodeIgniter [官方主页] (http://codeigniter.com/)  [github地址]{https://github.com/CodeIgniter}
 
 2. CodeIgniter restserver library  CodeIgniter 的 Restfull 库 https://github.com/philsturgeon/codeigniter-restserver  在本项目的application/controllers/api/
 
