@@ -5,7 +5,7 @@
 			<p>如果您还不知道中国的个税有多重，快试试吧。你本来可以拿双倍工资，但一半都被国家拿走了</p>
 			<hr>
 			
-			<div class="span10  form-horizontal" id="registerform" >
+			<div class="span12 form-horizontal" id="registerform" >
 
 				<div class="control-group">
 					<label for="username" class="control-label">用户名：</label>
