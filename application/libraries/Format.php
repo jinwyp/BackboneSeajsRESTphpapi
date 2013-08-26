@@ -200,6 +200,7 @@ class Format {
 		$output = implode(',', $headings).PHP_EOL;
 		foreach ($data as &$row)
 		{
+			$row = str_replace('"', '""', $row); // Escape dbl quotes per RFC 4180
 			$output .= '"'.implode('","', $row).'"'.PHP_EOL;
 		}
 
@@ -209,7 +210,11 @@ class Format {
 	// Encode as JSON
 	public function to_json()
 	{
-		return json_encode($this->_data);
+	    if (strnatcmp(phpversion(),'5.3.3') >= 0) {
+		return json_encode($this->_data, JSON_NUMERIC_CHECK);
+	    } else {
+	    	return json_encode($this->_data);
+	    }		
 	}
 
 	// Encode as Serialized array
