@@ -18,7 +18,7 @@ require APPPATH.'/libraries/REST_Controller.php';
 
 class Restful_Category extends REST_Controller {
 
-	   function categorys_get(){
+   function categorys_get(){
 
         $categorys = $this->Model_Category->getCategoryList( );
         /*
@@ -57,7 +57,6 @@ $users = array(
         {
             $this->response($category, 200); // 200 being the HTTP response code
         }
-
         else
         {
             $this->response(array('status' => 'failed', 'message' => '分类没有找到'), 404);
@@ -71,7 +70,7 @@ $users = array(
 
         	$data['level'] = $this->post('level');		
 			$data['parentcategoryid'] = $this->post('parentcategoryid');
-			$data['categorywebsitename'] = sha1($this->post('categorywebsitename'));
+			$data['categorywebsitename'] = $this->post('categorywebsitename');
 			$data['categorymenuname'] = $this->post('categorymenuname');
 			$data['categorymobilename'] = $this->post('categorymobilename');
 			$data['displayorder'] = $this->post('displayorder');
@@ -93,17 +92,17 @@ $users = array(
     
     /* 修改 */
     function category_put(){
-        if($this->put('id')){
+        if($this->get('id')){
         	
         	$data['level'] = $this->put('level');		
 			$data['parentcategoryid'] = $this->put('parentcategoryid');
-			$data['categorywebsitename'] = sha1($this->put('categorywebsitename'));
+			$data['categorywebsitename'] = $this->put('categorywebsitename');
 			$data['categorymenuname'] = $this->put('categorymenuname');
 			$data['categorymobilename'] = $this->put('categorymobilename');
 			$data['displayorder'] = $this->put('displayorder');
 			$data['nodisplay'] = $this->put('nodisplay');
         
-	        $result = $this->Model_Category->putCategory( $this->put('id'), $data);  
+	        $result = $this->Model_Category->putCategory( $this->get('id'), $data);  
 	          
 	        if($result === FALSE){  
 	            $this->response(array('status' => 'failed', 'message' => '修改失败'), 404);  
@@ -111,7 +110,10 @@ $users = array(
 	            $message = array( 'categorywebsitename' => $data['categorywebsitename'], 'categorymenuname' => $data['categorymenuname'], 'categorymobilename' =>$data['categorymobilename'],  'message' => '修改成功!');
         		$this->response($message, 200); // 200 being the HTTP response code
 	        }
+        }else{
+            $this->response(array('status' => 'failed', 'message' => '修改失败'), 404);     
         }
+
     }
     
     

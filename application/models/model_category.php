@@ -74,6 +74,7 @@ class Model_Category extends CI_Model {
 /*  put 用于修改 */
 	public function putCategory($categoryid, $data, $table = 'ci_category') {	
 	
+		
 		$this->db->where('id', $categoryid);			
 		return $this->db->update($table, $data); 		
 	}
