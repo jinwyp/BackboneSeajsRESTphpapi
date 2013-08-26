@@ -18,7 +18,27 @@ require APPPATH.'/libraries/REST_Controller.php';
 
 class Restful_Category extends REST_Controller {
 
-	function category_get(){
+	   function categorys_get(){
+
+        $categorys = $this->Model_Category->getCategoryList( );
+        /*
+$users = array(
+            1 => array('id' => 1, 'name' => 'Some Guy', 'email' => 'example1@example.com', 'fact' => 'Loves swimming'),
+            2 => array('id' => 2, 'name' => 'Person Face', 'email' => 'example2@example.com', 'fact' => 'Has a huge face'),
+            3 => array('id' => 3, 'name' => 'Scotty', 'email' => 'example3@example.com', 'fact' => 'Is a Scott!', array('hobbies' => array('fartings', 'bikes'))),
+        );
+*/
+
+        if($categorys)
+        {
+            $this->response($categorys, 200); // 200 being the HTTP response code
+        }else{
+            $this->response(array('status' => 'failed', 'message' => '分类数据没有找到'), 404);
+        }
+    }
+
+
+    function category_get(){
         if(!$this->get('id'))
         {
         	$this->response(NULL, 400);

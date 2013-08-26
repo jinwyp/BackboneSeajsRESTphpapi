@@ -44,7 +44,7 @@ class Model_Category extends CI_Model {
 	}
 
 
-	public function getCategoryList($pageno, $table = 'ci_category'){		
+	public function getCategoryList($pageno = 1, $table = 'ci_category'){		
 /*
 		$temppage = ($pageno - 1) * 10;
 		$this->db->limit(10, $temppage);
